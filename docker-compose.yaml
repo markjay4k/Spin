@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  redis:
+    image: redis:latest
+    container_name: ${DATABASE_NAME}
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    ports:
+      - ${REDIS_PORT}:${REDIS_PORT}
+    networks:
+      - database
+
+volumes:
+  redis_data:
+
+networks:
+  database:
+    name: ${DATABASE_NETWORK}

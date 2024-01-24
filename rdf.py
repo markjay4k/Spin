@@ -1,15 +1,19 @@
 import pandas as pd
 import redis
 import os
+import __init__
 
 
 class Rdf(pd.DataFrame):
+    expire_time = os.getenv('REDIS_EXPIRE_SECONDS')
+    port = int(os.getenv('REDIS_PORT'))
+    host = os.getenv('REDIS_IP_ADDR')
+
     def __init__(self, *args,  **kwargs):
         super().__init__(*args, **kwargs) 
-        self.expire_time = os.getenv('REDIS_EXPIRE_SECONDS')
-        self.port = int(os.getenv('REDIS_PORT'))
-        self.host = os.getenv('REDIS_IP_ADDR')
-        self.redis_client = redis.Redis(host=self.host, port=self.port, decode_responses=True)
+        self.redis_client = redis.Redis(
+            host=self.host, port=self.port, decode_responses=True
+        )
         if not self.redis_client.ping():
             raise ConnectionRefusedError(
                 f'Could not connect to redis: {self.host}:{self.port}'

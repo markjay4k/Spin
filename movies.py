@@ -3,7 +3,6 @@ from imdb import IMDbDataAccessError
 from requests import HTTPError
 from imdb import Cinemagoer
 from red import Database
-import argparse
 import clogger
 import __init__
 
@@ -12,7 +11,7 @@ class Movies:
     def __init__(self):
         self.imdb_client = Cinemagoer()
         self.movie_db = Database()
-        self.log = clogger.log(level='INFO')
+        self.log = clogger.log(level='INFO', logger_name='movies')
 
     def _get_movie(self, movie_id: str):
         return self.imdb_client.get_movie(movie_id)
@@ -32,18 +31,4 @@ class Movies:
             self.log.exception(f'{error=}')
         else:
             self.movie_db.set_movies_by_genre(genre=genre, movies=movies)
-
-
-if __name__ == '__main__':
-    import time
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        '-g', '--genre',
-        help='movie genre', type=str, default='horror'
-    )
-    args = parser.parse_args()
-
-    starttime = time.time()
-    Movies().top50_by_genre(args.genre)
-    print(f'duration: {time.time() - starttime:.2f}s')
 

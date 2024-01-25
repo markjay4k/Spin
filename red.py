@@ -22,7 +22,7 @@ class Database:
     ]
 
     def __init__(self):
-        self.log = clogger.log(level='INFO')
+        self.log = clogger.log(level='INFO', logger_name='red')
         self.client = redis.Redis(
             host=self.host, port=self.port, decode_responses=True
         )

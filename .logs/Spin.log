@@ -1,26 +1,125 @@
-2024-01-25 07:04:41| [36;20m[1m    red[0m[0m [31;20m   ERROR[0m| error=KeyError('runtimes')
-Traceback (most recent call last):
-  File "/home/mark/Projects/Spin/red.py", line 38, in set_movie
-    if isinstance(movie[info], str):
-                  ~~~~~^^^^^^
-  File "/home/mark/Projects/Spin/venv/lib/python3.12/site-packages/imdb/utils.py", line 1508, in __getitem__
-    rawData = self.data[key]
-              ~~~~~~~~~^^^^^
-KeyError: 'runtimes'
-2024-01-25 07:04:41| [36;20m[1m    red[0m[0m [31;20m   ERROR[0m| error=KeyError('runtimes')
-Traceback (most recent call last):
-  File "/home/mark/Projects/Spin/red.py", line 38, in set_movie
-    if isinstance(movie[info], str):
-                  ~~~~~^^^^^^
-  File "/home/mark/Projects/Spin/venv/lib/python3.12/site-packages/imdb/utils.py", line 1508, in __getitem__
-    rawData = self.data[key]
-              ~~~~~~~~~^^^^^
-KeyError: 'runtimes'
-2024-01-25 07:12:44| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
-2024-01-25 07:12:44| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
-2024-01-25 07:18:41| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
-2024-01-25 07:18:41| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
-2024-01-25 07:18:41| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
-2024-01-25 07:18:41| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
-2024-01-25 07:18:41| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
-2024-01-25 07:18:41| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-25 07:58:57| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='a'
+2024-01-25 07:58:57| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='a'
+2024-01-25 07:58:57| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='a'
+2024-01-25 07:58:59| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='d'
+2024-01-25 07:58:59| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='d'
+2024-01-25 07:58:59| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='d'
+2024-01-25 07:59:01| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='v'
+2024-01-25 07:59:01| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='v'
+2024-01-25 07:59:01| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='v'
+2024-01-25 07:59:03| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='e'
+2024-01-25 07:59:03| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='e'
+2024-01-25 07:59:03| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='e'
+2024-01-25 07:59:05| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='n'
+2024-01-25 07:59:05| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='n'
+2024-01-25 07:59:05| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='n'
+2024-01-25 07:59:07| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='t'
+2024-01-25 07:59:07| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='t'
+2024-01-25 07:59:07| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='t'
+2024-01-25 07:59:09| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='u'
+2024-01-25 07:59:09| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='u'
+2024-01-25 07:59:09| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='u'
+2024-01-25 07:59:11| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='r'
+2024-01-25 07:59:11| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='r'
+2024-01-25 07:59:11| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='r'
+2024-01-25 07:59:13| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='e'
+2024-01-25 07:59:13| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='e'
+2024-01-25 07:59:13| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='e'
+2024-01-25 08:00:17| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='a'
+2024-01-25 08:00:17| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='a'
+2024-01-25 08:00:17| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='a'
+2024-01-25 08:00:19| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='d'
+2024-01-25 08:00:19| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='d'
+2024-01-25 08:00:19| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='d'
+2024-01-25 08:00:21| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='v'
+2024-01-25 08:00:21| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='v'
+2024-01-25 08:00:21| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='v'
+2024-01-25 08:00:23| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='e'
+2024-01-25 08:00:23| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='e'
+2024-01-25 08:00:23| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='e'
+2024-01-25 08:01:24| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| genres='adventure'
+2024-01-25 08:01:24| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='a'
+2024-01-25 08:01:24| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='a'
+2024-01-25 08:01:24| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='a'
+2024-01-25 08:01:26| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='d'
+2024-01-25 08:01:26| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='d'
+2024-01-25 08:01:26| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='d'
+2024-01-25 08:02:12| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| genres='adventure'
+2024-01-25 08:02:12| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='a'
+2024-01-25 08:02:12| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='a'
+2024-01-25 08:02:12| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='a'
+2024-01-25 08:02:12| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='a'
+2024-01-25 08:02:14| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='d'
+2024-01-25 08:02:14| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='d'
+2024-01-25 08:02:14| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='d'
+2024-01-25 08:02:14| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='d'
+2024-01-25 08:02:37| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| genres='adventure'
+2024-01-25 08:02:38| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| genres=['a', 'd', 'v', 'e', 'n', 't', 'u', 'r', 'e']
+2024-01-25 08:02:38| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| genres=['a', 'd', 'v', 'e', 'n', 't', 'u', 'r', 'e']
+2024-01-25 08:02:38| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| genres=['a', 'd', 'v', 'e', 'n', 't', 'u', 'r', 'e']
+2024-01-25 08:02:38| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='a'
+2024-01-25 08:02:38| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='a'
+2024-01-25 08:02:38| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='a'
+2024-01-25 08:02:40| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='d'
+2024-01-25 08:02:40| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='d'
+2024-01-25 08:02:40| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='d'
+2024-01-25 08:04:23| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| genres='adventure'
+2024-01-25 08:04:23| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| type: True
+2024-01-25 08:04:23| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| type: True
+2024-01-25 08:04:23| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| type: True
+2024-01-25 08:04:23| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| genres=['a', 'd', 'v', 'e', 'n', 't', 'u', 'r', 'e']
+2024-01-25 08:04:23| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| genres=['a', 'd', 'v', 'e', 'n', 't', 'u', 'r', 'e']
+2024-01-25 08:04:23| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| genres=['a', 'd', 'v', 'e', 'n', 't', 'u', 'r', 'e']
+2024-01-25 08:04:23| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='a'
+2024-01-25 08:04:23| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='a'
+2024-01-25 08:04:23| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='a'
+2024-01-25 08:07:07| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| type: True
+2024-01-25 08:07:07| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='adventure'
+2024-01-25 08:07:31| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-25 08:07:31| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-25 08:08:39| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| type: False
+2024-01-25 08:08:39| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='horror'
+2024-01-25 08:08:57| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-25 08:08:57| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-25 08:08:57| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-25 08:08:57| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-25 08:08:57| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-25 08:08:57| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-25 08:08:57| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('full-size cover url')
+2024-01-25 08:08:58| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='drama'
+2024-01-25 08:09:17| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-25 08:09:18| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='family'
+2024-01-25 08:09:39| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-25 08:09:39| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-25 08:09:39| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('full-size cover url')
+2024-01-25 08:09:39| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-25 08:09:39| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-25 08:09:39| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-25 08:09:39| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-25 08:09:40| [36;20m[1mupdate_movies[0m[0m [32;20m    INFO[0m| updating movie database with genre='thriller'
+2024-01-25 08:10:00| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-25 08:10:00| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-25 08:10:50| [36;20m[1m   spin[0m[0m [32;20m    INFO[0m| type: False
+2024-01-25 08:10:50| [36;20m[1m   spin[0m[0m [32;20m    INFO[0m| updating movie database with genre='horror'
+2024-01-25 08:11:05| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-25 08:11:05| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-25 08:11:05| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-25 08:11:05| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-25 08:11:05| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-25 08:11:05| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-25 08:11:05| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('full-size cover url')
+2024-01-25 08:11:06| [36;20m[1m   spin[0m[0m [32;20m    INFO[0m| updating movie database with genre='drama'
+2024-01-25 08:11:23| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-25 08:11:24| [36;20m[1m   spin[0m[0m [32;20m    INFO[0m| updating movie database with genre='family'
+2024-01-25 08:11:45| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-25 08:11:45| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-25 08:11:45| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('full-size cover url')
+2024-01-25 08:11:45| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-25 08:11:45| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-25 08:11:45| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-25 08:11:45| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-25 08:11:46| [36;20m[1m   spin[0m[0m [32;20m    INFO[0m| updating movie database with genre='thriller'
+2024-01-25 08:12:33| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-25 08:12:33| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-25 08:12:33| [36;20m[1m   spin[0m[0m [33;20m WARNING[0m| error=IMDbDataAccessError({'errcode': None, 'errmsg': 'None', 'url': 'https://www.imdb.com/title/tt9620292/plotsummary', 'proxy': '', 'exception type': 'IOError', 'original exception': TimeoutError('The read operation timed out')})
+2024-01-25 08:12:33| [36;20m[1m   spin[0m[0m [33;20m WARNING[0m| could not update genre='thriller'

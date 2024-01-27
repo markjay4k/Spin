@@ -123,3 +123,63 @@
 2024-01-25 08:12:33| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
 2024-01-25 08:12:33| [36;20m[1m   spin[0m[0m [33;20m WARNING[0m| error=IMDbDataAccessError({'errcode': None, 'errmsg': 'None', 'url': 'https://www.imdb.com/title/tt9620292/plotsummary', 'proxy': '', 'exception type': 'IOError', 'original exception': TimeoutError('The read operation timed out')})
 2024-01-25 08:12:33| [36;20m[1m   spin[0m[0m [33;20m WARNING[0m| could not update genre='thriller'
+2024-01-26 04:27:57| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is down
+2024-01-26 04:27:57| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| 
+2024-01-26 04:28:41| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is down
+2024-01-26 04:28:42| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| 
+2024-01-26 04:29:42| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is down. starting container
+2024-01-26 04:29:43| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| 
+2024-01-26 04:29:46| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is down. starting container
+2024-01-26 04:29:46| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| 
+2024-01-26 04:31:16| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is down. starting container
+2024-01-26 04:31:16| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| 
+2024-01-26 04:31:24| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is down. starting container
+2024-01-26 04:31:24| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| 
+2024-01-26 04:33:14| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is down. starting container
+2024-01-26 04:33:14| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| 
+2024-01-26 04:33:23| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is down. starting container
+2024-01-26 04:33:24| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| 
+2024-01-26 04:37:32| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-26 04:44:37| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-26 05:01:11| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-26 05:03:26| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-26 05:05:42| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-26 05:08:19| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-26 05:46:42| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-26 05:53:41| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-26 05:53:41| [36;20m[1m   spin[0m[0m [32;20m    INFO[0m| type: False
+2024-01-26 05:53:41| [36;20m[1m   spin[0m[0m [32;20m    INFO[0m| updating movie database with genre='horror'
+2024-01-26 05:53:59| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-26 05:53:59| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-26 05:53:59| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-26 05:53:59| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-26 05:53:59| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-26 05:53:59| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-26 05:53:59| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('full-size cover url')
+2024-01-26 05:54:00| [36;20m[1m   spin[0m[0m [32;20m    INFO[0m| updating movie database with genre='drama'
+2024-01-26 05:54:19| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-26 05:54:20| [36;20m[1m   spin[0m[0m [32;20m    INFO[0m| updating movie database with genre='sci-fi'
+2024-01-26 05:54:42| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-26 05:54:42| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-26 05:54:42| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-26 05:54:42| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-26 05:54:42| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-26 05:54:42| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-26 05:54:43| [36;20m[1m   spin[0m[0m [32;20m    INFO[0m| updating movie database with genre='adventure'
+2024-01-26 05:55:18| [36;20m[1m   spin[0m[0m [33;20m WARNING[0m| error=IMDbDataAccessError({'errcode': None, 'errmsg': 'None', 'url': 'https://www.imdb.com/title/tt11858890/plotsummary', 'proxy': '', 'exception type': 'IOError', 'original exception': TimeoutError('The read operation timed out')})
+2024-01-26 05:55:18| [36;20m[1m   spin[0m[0m [33;20m WARNING[0m| could not update genre='adventure'
+2024-01-26 05:55:18| [36;20m[1m   spin[0m[0m [32;20m    INFO[0m| updating movie database with genre='comedy'
+2024-01-26 05:55:38| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-26 05:55:39| [36;20m[1m   spin[0m[0m [32;20m    INFO[0m| updating movie database with genre='family'
+2024-01-26 05:56:15| [36;20m[1m   spin[0m[0m [33;20m WARNING[0m| error=IMDbDataAccessError({'errcode': None, 'errmsg': 'None', 'url': 'https://www.imdb.com/title/tt5697572/plotsummary', 'proxy': '', 'exception type': 'IOError', 'original exception': TimeoutError('The read operation timed out')})
+2024-01-26 05:56:15| [36;20m[1m   spin[0m[0m [33;20m WARNING[0m| could not update genre='family'
+2024-01-26 05:56:16| [36;20m[1m   spin[0m[0m [32;20m    INFO[0m| updating movie database with genre='romance'
+2024-01-26 05:56:34| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-26 05:56:34| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('languages')
+2024-01-26 05:56:34| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-26 05:56:34| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-26 05:56:34| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-26 05:56:35| [36;20m[1m   spin[0m[0m [32;20m    INFO[0m| updating movie database with genre='thriller'
+2024-01-26 05:56:55| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-26 05:56:55| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-27 03:41:43| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running

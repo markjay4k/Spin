@@ -11,6 +11,7 @@ services:
       - ${REDIS_PORT}:${REDIS_PORT}
     networks:
       - database
+    restart: unless-stopped
 
 volumes:
   redis_data:

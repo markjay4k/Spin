@@ -1,31 +1,31 @@
+from red import Database
 import streamlit as st
-import requests
-from PIL import Image
-from io import BytesIO
 
 
-FASTAPI_SERVER_URL = "http://192.168.10.67:8000"
+def display_images_in_grid(image_urls):
+    cols = st.columns(5)
+    for index, url in enumerate(image_urls):
+        with cols[index % 5]:  
+            st.image(url)
 
 
-def get_image_from_fastapi():
-    response = requests.get(f"{FASTAPI_SERVER_URL}/image")
-    if response.status_code == 200:
-        return Image.open(BytesIO(response.content))
-    return None
+def cover_urls(genre):
+    db = Database()
+    movies = db.get_movies_by_genre(genre=genre)
+    urls = []
+    for movie in movies:
+        try:
+            urls.append(movie['full-size cover url'])
+        except KeyError as error:
+            print(movie['title'])
+    return urls
 
 
 def main():
-    st.title("Clickable Image with FastAPI and Streamlit")
-    image = get_image_from_fastapi()
-    if image:
-        if st.image(
-            image, use_column_width=True,
-            caption="Click me!", output_format='JPEG'
-        ):
-            st.write("Image clicked!")
-    else:
-        st.error("Failed to load the image from FastAPI server.")
+    image_urls = cover_urls('horror')
+    st.title('horror movies')
+    display_images_in_grid(image_urls)
+
 
 if __name__ == "__main__":
     main()
-

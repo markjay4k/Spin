@@ -8,11 +8,11 @@ def sync(args):
     default_genres = [
         'horror',
         'drama',
-        #'sci-fi',
-        #'adventure',
-        #'comedy',
+        'sci-fi',
+        'adventure',
+        'comedy',
         'family',
-        #'romance',
+        'romance',
         'thriller'
     ]
     genres = args.genre if args.genre else default_genres

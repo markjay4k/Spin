@@ -28,7 +28,8 @@ class Movies:
         except HTTPError as error:
             self.log.warning(f'{error=}')
         except IMDbDataAccessError as error:
-            self.log.exception(f'{error=}')
+            self.log.warning(f'{error=}')
         else:
             self.movie_db.set_movies_by_genre(genre=genre, movies=movies)
+
 

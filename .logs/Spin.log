@@ -327,3 +327,5 @@
 2024-01-27 07:06:39| [36;20m[1m  __init__[0m[0m [32;20m    INFO[0m| Redis is running
 2024-01-27 07:06:39| [36;20m[1mapp_images[0m[0m [32;20m    INFO[0m| building image page for horror movies
 2024-01-27 07:06:59| [36;20m[1mapp_images[0m[0m [33;20m WARNING[0m| Beetlejuice 2: 'full-size cover url'
+2024-01-27 17:12:27| [36;20m[1m  __init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 17:58:50| [36;20m[1m  __init__[0m[0m [32;20m    INFO[0m| Redis is running

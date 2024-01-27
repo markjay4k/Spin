@@ -26,10 +26,10 @@ class Database:
         'full-size cover url'
     ]
 
-    def __init__(self):
+    def __init__(self, decode=True):
         self.log = clogger.log(level='INFO', logger_name='red')
         self.client = redis.Redis(
-            host=self.host, port=self.port, decode_responses=True
+            host=self.host, port=self.port, decode_responses=decode
         )
         if not self.client.ping():
             raise ConnectionRefusedError(

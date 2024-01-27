@@ -6,6 +6,11 @@ import __init__
 
 
 class Database:
+    """
+    Redis Entertainment Database
+    set and get movies from the redis database
+    to be called by Movies class
+    """
     expire_time = os.getenv('REDIS_EXPIRE_SECONDS')
     port = int(os.getenv('REDIS_PORT'))
     host = os.getenv('REDIS_IP_ADDR')
@@ -31,7 +36,7 @@ class Database:
                 f'Could not connect to redis: {self.host}:{self.port}'
             )
 
-    def set_movie(self, genre: str, movie: Movie.Movie):
+    def _set_movie(self, genre: str, movie: Movie.Movie):
         movie_map = {}
         for info in self.infokeys:
             try:
@@ -48,16 +53,16 @@ class Database:
     
     def set_movies_by_genre(self, genre: str, movies: list[Movie.Movie]):
         for movie in movies:
-            self.set_movie(genre=genre, movie=movie)
+            self._set_movie(genre=genre, movie=movie)
 
-    def get_movie(self, name: str) -> dict:
+    def _get_movie(self, name: str) -> dict:
         return self.client.hgetall(name=name)
 
     def get_movies_by_genre(self, genre: str) -> list[dict]:
         names = [name for name in self.client.scan_iter(match=f'{genre}*')]
         movies = []
         for name in names:
-            movie = self.get_movie(name=name)
+            movie = self._get_movie(name=name)
             movies.append(movie)
         return movies
 

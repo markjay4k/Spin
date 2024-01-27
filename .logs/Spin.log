@@ -183,3 +183,147 @@
 2024-01-26 05:56:55| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
 2024-01-26 05:56:55| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
 2024-01-27 03:41:43| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 04:32:37| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 04:33:11| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 04:34:12| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 04:35:29| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 04:40:30| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 04:40:46| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 04:40:46| [36;20m[1m   spin[0m[0m [32;20m    INFO[0m| type: False
+2024-01-27 04:41:09| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 04:41:10| [36;20m[1m   spin[0m[0m [32;20m    INFO[0m| type: False
+2024-01-27 04:41:10| [36;20m[1m   spin[0m[0m [32;20m    INFO[0m| genres=['horror']
+2024-01-27 04:41:10| [36;20m[1m   spin[0m[0m [32;20m    INFO[0m| updating movie database with genre='horror'
+2024-01-27 04:41:27| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-27 04:41:27| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-27 04:41:27| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-27 04:41:27| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-27 04:41:27| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-27 04:41:27| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-27 04:41:27| [36;20m[1m    red[0m[0m [33;20m WARNING[0m| error=KeyError('full-size cover url')
+2024-01-27 04:44:54| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 04:44:54| [36;20m[1m    spin[0m[0m [32;20m    INFO[0m| genres=['horror', 'drama', 'sci-fi', 'adventure', 'comedy', 'family', 'romance', 'thriller']
+2024-01-27 04:44:54| [36;20m[1m    spin[0m[0m [32;20m    INFO[0m| updating movie database with genre='horror'
+2024-01-27 04:45:10| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-27 04:45:10| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-27 04:45:10| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-27 04:45:10| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-27 04:45:10| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-27 04:45:11| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-27 04:45:11| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('full-size cover url')
+2024-01-27 04:45:12| [36;20m[1m    spin[0m[0m [32;20m    INFO[0m| updating movie database with genre='drama'
+2024-01-27 04:45:30| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-27 04:45:31| [36;20m[1m    spin[0m[0m [32;20m    INFO[0m| updating movie database with genre='sci-fi'
+2024-01-27 04:45:53| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-27 04:45:53| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-27 04:45:53| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-27 04:45:53| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-27 04:45:53| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-27 04:45:53| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-27 04:45:54| [36;20m[1m    spin[0m[0m [32;20m    INFO[0m| updating movie database with genre='adventure'
+2024-01-27 04:46:32| [36;20m[1m    spin[0m[0m [33;20m WARNING[0m| error=IMDbDataAccessError({'errcode': None, 'errmsg': 'None', 'url': 'https://www.imdb.com/title/tt0106246/plotsummary', 'proxy': '', 'exception type': 'IOError', 'original exception': TimeoutError('The read operation timed out')})
+2024-01-27 04:46:32| [36;20m[1m    spin[0m[0m [33;20m WARNING[0m| could not update genre='adventure'
+2024-01-27 04:46:32| [36;20m[1m    spin[0m[0m [32;20m    INFO[0m| updating movie database with genre='comedy'
+2024-01-27 04:47:13| [36;20m[1m    spin[0m[0m [33;20m WARNING[0m| error=IMDbDataAccessError({'errcode': None, 'errmsg': 'None', 'url': 'https://www.imdb.com/title/tt17351924/plotsummary', 'proxy': '', 'exception type': 'IOError', 'original exception': TimeoutError('The read operation timed out')})
+2024-01-27 04:47:13| [36;20m[1m    spin[0m[0m [33;20m WARNING[0m| could not update genre='comedy'
+2024-01-27 04:47:13| [36;20m[1m    spin[0m[0m [32;20m    INFO[0m| updating movie database with genre='family'
+2024-01-27 04:47:34| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-27 04:47:34| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-27 04:47:34| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('full-size cover url')
+2024-01-27 04:47:34| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-27 04:47:34| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-27 04:47:34| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-27 04:47:34| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-27 04:47:35| [36;20m[1m    spin[0m[0m [32;20m    INFO[0m| updating movie database with genre='romance'
+2024-01-27 04:47:53| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-27 04:47:53| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('languages')
+2024-01-27 04:47:53| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-27 04:47:53| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-27 04:47:53| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-27 04:47:54| [36;20m[1m    spin[0m[0m [32;20m    INFO[0m| updating movie database with genre='thriller'
+2024-01-27 04:48:14| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-27 04:48:14| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-27 04:57:24| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 04:57:25| [36;20m[1m    spin[0m[0m [32;20m    INFO[0m| genres=['horror', 'comedy', 'romance', 'drama']
+2024-01-27 04:57:25| [36;20m[1m    spin[0m[0m [32;20m    INFO[0m| updating movie database with genre='horror'
+2024-01-27 04:57:59| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 04:57:59| [36;20m[1m    spin[0m[0m [32;20m    INFO[0m| updating movie database with genre='horror'
+2024-01-27 04:58:19| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-27 04:58:19| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-27 04:58:19| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-27 04:58:19| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-27 04:58:19| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-27 04:58:19| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-27 04:58:19| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('full-size cover url')
+2024-01-27 04:58:20| [36;20m[1m    spin[0m[0m [32;20m    INFO[0m| updating movie database with genre='comedy'
+2024-01-27 04:58:40| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-27 04:58:41| [36;20m[1m    spin[0m[0m [32;20m    INFO[0m| updating movie database with genre='romance'
+2024-01-27 04:58:59| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-27 04:58:59| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('languages')
+2024-01-27 04:58:59| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-27 04:58:59| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-27 04:58:59| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-27 04:59:00| [36;20m[1m    spin[0m[0m [32;20m    INFO[0m| updating movie database with genre='drama'
+2024-01-27 04:59:19| [36;20m[1m     red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-27 05:08:39| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 05:29:16| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 05:36:33| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 05:37:07| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 05:37:07| [36;20m[1mapp_images[0m[0m [32;20m    INFO[0m| building image page for horror movies
+2024-01-27 05:37:54| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 05:37:54| [36;20m[1mapp_images[0m[0m [32;20m    INFO[0m| building image page for horror movies
+2024-01-27 05:37:55| [36;20m[1mapp_images[0m[0m [33;20m WARNING[0m| Beetlejuice 2: 'full-size cover url'
+2024-01-27 05:41:40| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 05:41:41| [36;20m[1mapp_images[0m[0m [32;20m    INFO[0m| building image page for horror movies
+2024-01-27 05:41:41| [36;20m[1mapp_images[0m[0m [32;20m    INFO[0m| building image page for horror movies
+2024-01-27 05:41:41| [36;20m[1mapp_images[0m[0m [32;20m    INFO[0m| building image page for horror movies
+2024-01-27 05:41:41| [36;20m[1mapp_images[0m[0m [33;20m WARNING[0m| Beetlejuice 2: 'full-size cover url'
+2024-01-27 05:41:41| [36;20m[1mapp_images[0m[0m [33;20m WARNING[0m| Beetlejuice 2: 'full-size cover url'
+2024-01-27 05:41:41| [36;20m[1mapp_images[0m[0m [33;20m WARNING[0m| Beetlejuice 2: 'full-size cover url'
+2024-01-27 05:41:41| [36;20m[1mapp_images[0m[0m [33;20m WARNING[0m| Beetlejuice 2: 'full-size cover url'
+2024-01-27 05:43:34| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 05:43:34| [36;20m[1mapp_images[0m[0m [32;20m    INFO[0m| building image page for horror movies
+2024-01-27 05:43:34| [36;20m[1mapp_images[0m[0m [33;20m WARNING[0m| Beetlejuice 2: 'full-size cover url'
+2024-01-27 05:44:24| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 05:44:24| [36;20m[1mapp_images[0m[0m [32;20m    INFO[0m| building image page for horror movies
+2024-01-27 05:44:24| [36;20m[1mapp_images[0m[0m [33;20m WARNING[0m| Beetlejuice 2: 'full-size cover url'
+2024-01-27 05:50:08| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 05:50:08| [36;20m[1mapp_images[0m[0m [32;20m    INFO[0m| building image page for horror movies
+2024-01-27 05:50:08| [36;20m[1mapp_images[0m[0m [33;20m WARNING[0m| Beetlejuice 2: 'full-size cover url'
+2024-01-27 05:50:34| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 05:50:34| [36;20m[1mapp_images[0m[0m [32;20m    INFO[0m| building image page for horror movies
+2024-01-27 05:50:34| [36;20m[1mapp_images[0m[0m [33;20m WARNING[0m| Beetlejuice 2: 'full-size cover url'
+2024-01-27 05:52:56| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 05:52:56| [36;20m[1mapp_images[0m[0m [32;20m    INFO[0m| building image page for horror movies
+2024-01-27 05:52:56| [36;20m[1mapp_images[0m[0m [33;20m WARNING[0m| Beetlejuice 2: 'full-size cover url'
+2024-01-27 06:37:49| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 06:37:49| [36;20m[1mapp_images[0m[0m [32;20m    INFO[0m| building image page for horror movies
+2024-01-27 06:37:49| [36;20m[1mapp_images[0m[0m [33;20m WARNING[0m| Beetlejuice 2: 'full-size cover url'
+2024-01-27 06:38:37| [36;20m[1m__init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 06:38:38| [36;20m[1mapp_images[0m[0m [32;20m    INFO[0m| building image page for horror movies
+2024-01-27 06:38:38| [36;20m[1mapp_images[0m[0m [32;20m    INFO[0m| building image page for horror movies
+2024-01-27 06:38:38| [36;20m[1mapp_images[0m[0m [32;20m    INFO[0m| building image page for horror movies
+2024-01-27 06:38:38| [36;20m[1mapp_images[0m[0m [33;20m WARNING[0m| Beetlejuice 2: 'full-size cover url'
+2024-01-27 06:38:38| [36;20m[1mapp_images[0m[0m [33;20m WARNING[0m| Beetlejuice 2: 'full-size cover url'
+2024-01-27 06:43:59| [36;20m[1m  __init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 06:44:00| [36;20m[1mapp_images[0m[0m [32;20m    INFO[0m| building image page for horror movies
+2024-01-27 06:44:00| [36;20m[1mapp_images[0m[0m [33;20m WARNING[0m| Beetlejuice 2: 'full-size cover url'
+2024-01-27 06:47:17| [36;20m[1m  __init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 06:47:17| [36;20m[1mapp_images[0m[0m [32;20m    INFO[0m| building image page for horror movies
+2024-01-27 06:47:58| [36;20m[1m  __init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 06:47:58| [36;20m[1mapp_images[0m[0m [32;20m    INFO[0m| building image page for horror movies
+2024-01-27 06:48:56| [36;20m[1m  __init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 06:48:56| [36;20m[1mapp_images[0m[0m [32;20m    INFO[0m| building image page for horror movies
+2024-01-27 06:48:57| [36;20m[1mapp_images[0m[0m [33;20m WARNING[0m| Beetlejuice 2: 'full-size cover url'
+2024-01-27 06:51:20| [36;20m[1m  __init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 06:51:20| [36;20m[1mapp_images[0m[0m [32;20m    INFO[0m| building image page for horror movies
+2024-01-27 06:51:21| [36;20m[1mapp_images[0m[0m [33;20m WARNING[0m| Beetlejuice 2: 'full-size cover url'
+2024-01-27 07:04:11| [36;20m[1m  __init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 07:04:11| [36;20m[1mapp_images[0m[0m [32;20m    INFO[0m| building image page for horror movies
+2024-01-27 07:04:25| [36;20m[1mapp_images[0m[0m [33;20m WARNING[0m| Beetlejuice 2: 'full-size cover url'
+2024-01-27 07:05:19| [36;20m[1m  __init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 07:05:19| [36;20m[1mapp_images[0m[0m [32;20m    INFO[0m| building image page for horror movies
+2024-01-27 07:05:31| [36;20m[1mapp_images[0m[0m [33;20m WARNING[0m| Beetlejuice 2: 'full-size cover url'
+2024-01-27 07:06:39| [36;20m[1m  __init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-27 07:06:39| [36;20m[1mapp_images[0m[0m [32;20m    INFO[0m| building image page for horror movies
+2024-01-27 07:06:59| [36;20m[1mapp_images[0m[0m [33;20m WARNING[0m| Beetlejuice 2: 'full-size cover url'

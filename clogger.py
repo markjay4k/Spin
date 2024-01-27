@@ -93,7 +93,7 @@ def log(
     logger = logging.getLogger(logger_name)
     logger.setLevel(level)
     asctime = '{asctime:15s}'
-    module = '{module:>7s}'
+    module = '{module:>10s}'
     levelname = '#c{levelname:>8s}#r'
     message = '{message}'
     if msecs:

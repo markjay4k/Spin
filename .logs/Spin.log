@@ -497,3 +497,65 @@
 2024-01-28 07:59:22| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the thing
 2024-01-28 07:59:22| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: lisa frankenstein
 2024-01-28 07:59:24| [36;20m[1m      spin[0m[0m [32;20m    INFO[0m| updating movie database with genre='drama'
+2024-01-28 08:00:06| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: saltburn
+2024-01-28 08:00:07| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: poor things
+2024-01-28 08:00:07| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: lift
+2024-01-28 08:00:07| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: killers of the flower moon
+2024-01-28 08:00:12| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: society of the snow
+2024-01-28 08:00:14| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: oppenheimer
+2024-01-28 08:00:23| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the holdovers
+2024-01-28 08:00:23| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: 12th fail
+2024-01-28 08:00:23| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: napoleon
+2024-01-28 08:01:01| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: spaceman
+2024-01-28 08:01:02| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the iron claw
+2024-01-28 08:01:02| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: leave the world behind
+2024-01-28 08:01:06| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: rebel moon: part one - a child of fire
+2024-01-28 08:01:06| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the boys in the boat
+2024-01-28 08:01:08| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the creator
+2024-01-28 08:01:11| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: anatomy of a fall
+2024-01-28 08:01:12| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: animal
+2024-01-28 08:01:13| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the hunger games: the ballad of songbirds & snakes
+2024-01-28 08:01:13| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: all of us strangers
+2024-01-28 08:01:15| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: godzilla minus one
+2024-01-28 08:01:15| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: maestro
+2024-01-28 08:01:16| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: merry christmas
+2024-01-28 08:01:16| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the boy and the heron
+2024-01-28 08:01:17| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the kitchen
+2024-01-28 08:01:17| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the zone of interest
+2024-01-28 08:01:18| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: alive
+2024-01-28 08:01:18| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the color purple
+2024-01-28 08:01:28| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: past lives
+2024-01-28 08:01:28| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: may december
+2024-01-28 08:01:29| [36;20m[1m      spin[0m[0m [33;20m WARNING[0m| error=IMDbDataAccessError({'errcode': None, 'errmsg': 'None', 'url': 'https://www.imdb.com/title/tt23561236/plotsummary', 'proxy': '', 'exception type': 'IOError', 'original exception': TimeoutError('The read operation timed out')})
+2024-01-28 08:01:29| [36;20m[1m      spin[0m[0m [33;20m WARNING[0m| could not update genre='drama'
+2024-01-28 08:01:29| [36;20m[1m      spin[0m[0m [32;20m    INFO[0m| updating movie database with genre='sci-fi'
+2024-01-28 08:01:51| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: poor things
+2024-01-28 08:01:52| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: spaceman
+2024-01-28 08:01:52| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: rebel moon: part one - a child of fire
+2024-01-28 08:01:53| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the creator
+2024-01-28 08:01:56| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: i.s.s.
+2024-01-28 08:01:57| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: aquaman and the lost kingdom
+2024-01-28 08:02:08| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the hunger games: the ballad of songbirds & snakes
+2024-01-28 08:02:08| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: godzilla minus one
+2024-01-28 08:02:09| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the kitchen
+2024-01-28 08:02:09| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: foe
+2024-01-28 08:02:18| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: dune
+2024-01-28 08:02:21| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: madame web
+2024-01-28 08:02:21| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: spider-man: across the spider-verse
+2024-01-28 08:02:22| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: interstellar
+2024-01-28 08:02:23| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: indiana jones and the dial of destiny
+2024-01-28 08:02:25| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: everything everywhere all at once
+2024-01-28 08:02:26| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: dune: part two
+2024-01-28 08:02:26| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the hunger games
+2024-01-28 08:02:27| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-28 08:02:27| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: deadpool 3
+2024-01-28 08:02:27| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: asteroid city
+2024-01-28 08:02:28| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: inception
+2024-01-28 08:02:28| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-28 08:02:28| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: godzilla x kong: the new empire
+2024-01-28 08:02:29| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the lobster
+2024-01-28 08:02:30| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the flash
+2024-01-28 08:02:36| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: guardians of the galaxy vol. 3
+2024-01-28 08:02:36| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: mad max: fury road
+2024-01-28 08:02:37| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-28 08:02:37| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: furiosa: a mad max saga

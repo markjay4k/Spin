@@ -9,6 +9,9 @@ import __init__
 
 
 class Movies:
+    """
+    use cinemagoer top50 search to get top40 movie data by genre
+    """
     def __init__(self):
         self.imdb_client = Cinemagoer()
         self.movie_db = Database()

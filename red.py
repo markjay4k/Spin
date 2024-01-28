@@ -1,3 +1,4 @@
+from _images import Images
 from imdb import Movie
 import clogger
 import redis
@@ -26,8 +27,9 @@ class Database:
         'full-size cover url'
     ]
 
-    def __init__(self, decode=True):
+    def __init__(self, decode: bool=True):
         self.log = clogger.log(level='INFO', logger_name='red')
+        self.cover_img = Image()
         self.client = redis.Redis(
             host=self.host, port=self.port, decode_responses=decode
         )
@@ -46,12 +48,14 @@ class Database:
                     movie_map[info] = movie[info][0]
             except KeyError as error:
                 self.log.warning(f'{error=}')
+        movie_map['cover_image'] = self.cover_img.download_edit_cover(movie)
         self.client.hmset(
             name=f'{genre}:{movie.movieID}',
             mapping=movie_map
         )
     
     def set_movies_by_genre(self, genre: str, movies: list[Movie.Movie]):
+        """save the cinemagoer movie search results to redis"""
         for movie in movies:
             self._set_movie(genre=genre, movie=movie)
 
@@ -59,6 +63,7 @@ class Database:
         return self.client.hgetall(name=name)
 
     def get_movies_by_genre(self, genre: str) -> list[dict]:
+        """return all movies by genre stored in redis database"""
         names = [name for name in self.client.scan_iter(match=f'{genre}*')]
         movies = []
         for name in names:

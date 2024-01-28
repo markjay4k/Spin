@@ -6,9 +6,10 @@ import clogger
 class Images:
     def __init__(self, columns):
         self.log = clogger.log('INFO', logger_name=__name__)
-        self.db = Database()
-        self.cover_key = 'full-size cover url'
-        self.title_key = 'title'
+        self.db = Database(decode=False)
+        #self.cover_key = 'full-size cover url'
+        self.cover_key = b'cover_image'
+        self.title_key = b'title'
         self.columns = columns
 
     def display_images_in_grid(self, genre):
@@ -19,7 +20,8 @@ class Images:
                 cols = st.columns(self.columns, gap='small')
             with cols[index % self.columns]:
                 st.image(
-                    url, use_column_width=True, caption=movie[self.title_key]
+                    url, use_column_width=True,
+                    caption=movie[self.title_key].decode('utf-8')
                 )
     
     def _cover_urls(self, genre):

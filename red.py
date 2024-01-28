@@ -1,4 +1,6 @@
-from _images import Images
+#!/usr/bin/env python3
+
+from _images import ImEdit 
 from imdb import Movie
 import clogger
 import redis
@@ -15,6 +17,7 @@ class Database:
     expire_time = os.getenv('REDIS_EXPIRE_SECONDS')
     port = int(os.getenv('REDIS_PORT'))
     host = os.getenv('REDIS_IP_ADDR')
+    log_level = os.getenv('LOG_LEVEL')
     infokeys = [
         'genres',
         'runtimes',
@@ -28,8 +31,8 @@ class Database:
     ]
 
     def __init__(self, decode: bool=True):
-        self.log = clogger.log(level='INFO', logger_name='red')
-        self.cover_img = Image()
+        self.log = clogger.log(level=self.log_level, logger_name='red')
+        self.cover_img = ImEdit()
         self.client = redis.Redis(
             host=self.host, port=self.port, decode_responses=decode
         )
@@ -48,11 +51,15 @@ class Database:
                     movie_map[info] = movie[info][0]
             except KeyError as error:
                 self.log.warning(f'{error=}')
-        movie_map['cover_image'] = self.cover_img.download_edit_cover(movie)
-        self.client.hmset(
-            name=f'{genre}:{movie.movieID}',
-            mapping=movie_map
-        )
+        cover_img_bytes = self.cover_img.download_edit_cover(movie)
+        if cover_img_bytes:
+            movie_map['cover_image'] = cover_img_bytes
+            self.client.hmset(
+                name=f'{genre}:{movie.movieID}',
+                mapping=movie_map
+            )
+        else:
+            self.log.info(f'skipping {genre}:{movie.movieID}')
     
     def set_movies_by_genre(self, genre: str, movies: list[Movie.Movie]):
         """save the cinemagoer movie search results to redis"""

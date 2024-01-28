@@ -1,12 +1,14 @@
-from PIL import Image
+#!/usr/bin/env python3
+
 from io import BytesIO
+from PIL import Image
 import subprocess
 import requests
 import clogger
 import PTN
 
 
-class Image:
+class ImEdit:
     def __init__(self):
         self.log = clogger.log('INFO', logger_name='Image')
         self.jfdb = '/store/media/jellyfin/media/movies'
@@ -16,7 +18,7 @@ class Image:
     def _jf_movies(self) -> list[str]:
         command = ['ssh', 'mork', 'ls', self.jfdb]
         movies = subprocess.run(command, capture_output=True)
-        movies = jfmovs.stdout.decode('utf-8').strip().split('\n')
+        movies = movies.stdout.decode('utf-8').strip().split('\n')
         jf_movie_titles = []
         for movie in movies:
             try:
@@ -27,18 +29,23 @@ class Image:
                 jf_movie_titles.append(title)
         return jf_movie_titles
 
-    def _download_image(self, url: str) -> list[bytes]:
-        response = requests.get(url)
-        image = Image.open(BytesIO(response.content))
-        return image
+    def _image2bytes(self, image):
+        byte_array = BytesIO()
+        image.save(byte_array, format='PNG')
+        return byte_array.getvalue()
+
+    def _download_bytes(self, url: str) -> list[bytes]:
+        byte_array = requests.get(url).content
+        return byte_array
     
     def _add_border(
             self, 
             url: str,
-            thickness: int=5,
-            color: str='pink'
+            thickness: int=8,
+            color: str=(0, 255, 255)
         ) -> list[bytes]:
-        image = self._download_image(url)
+        byte_array = self._download_bytes(url)
+        image = Image.open(BytesIO(byte_array))
         bordered_image = Image.new(
             "RGB", (
                 image.width + 2 * thickness, 
@@ -46,18 +53,21 @@ class Image:
             ), color
         )
         bordered_image.paste(image, (thickness, thickness))
-        return bordered_image
+        return self._image2bytes(bordered_image)
     
     def download_edit_cover(self, movie, border=5, color='pink'):
         try:
-            image_url = movie['full-size cover url'].decode('utf-8')
+            image_url = movie['full-size cover url']
         except KeyError as e:
+            self.log.warning(f'no movie url: {e}')
             return None
         else:
-            movie_title = movie['title'].decode('utf-8').lower()
+            movie_title = movie['title'].lower()
             if movie_title in self.jf_movie_titles:
-                return self._bordered_image(image_url)
+                self.log.info(f'Already have it: {movie_title}')
+                return self._add_border(image_url)
             else:
-                return self._download_image(image_url)
+                self.log.info(f'Already have it: {movie_title}')
+                return self._download_bytes(image_url)
 
 

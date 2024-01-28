@@ -333,3 +333,167 @@
 2024-01-28 03:14:15| [36;20m[1m  __init__[0m[0m [32;20m    INFO[0m| Redis is running
 2024-01-28 03:18:23| [36;20m[1m  __init__[0m[0m [32;20m    INFO[0m| Redis is running
 2024-01-28 03:24:15| [36;20m[1m  __init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-28 06:23:42| [36;20m[1m  __init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-28 06:28:15| [36;20m[1m  __init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-28 06:32:44| [36;20m[1m  __init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-28 07:08:53| [36;20m[1m  __init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-28 07:12:39| [36;20m[1m  __init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-28 07:14:38| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-28 07:15:48| [36;20m[1m  __init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-28 07:16:12| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-28 07:16:40| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-28 07:16:40| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-28 07:16:41| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-28 07:16:41| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-28 07:16:55| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-28 07:16:55| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('full-size cover url')
+2024-01-28 07:25:49| [36;20m[1m  __init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-28 07:28:06| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-28 07:28:06| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: abigail
+2024-01-28 07:28:07| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: godzilla minus one
+2024-01-28 07:28:07| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: night swim
+2024-01-28 07:28:12| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: x
+2024-01-28 07:28:12| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the killing of a sacred deer
+2024-01-28 07:28:14| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: dream scenario
+2024-01-28 07:28:14| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: five nights at freddy's
+2024-01-28 07:28:14| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: a haunting in venice
+2024-01-28 07:28:16| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: talk to me
+2024-01-28 07:28:25| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: thanksgiving
+2024-01-28 07:28:26| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: midsommar
+2024-01-28 07:28:29| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: nefarious
+2024-01-28 07:28:29| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: beau is afraid
+2024-01-28 07:28:29| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: pearl
+2024-01-28 07:28:33| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-28 07:28:33| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-28 07:28:33| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: nosferatu
+2024-01-28 07:28:33| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: when evil lurks
+2024-01-28 07:28:34| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the menu
+2024-01-28 07:28:34| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-28 07:28:34| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-28 07:28:34| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: alien: romulus
+2024-01-28 07:28:34| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: hereditary
+2024-01-28 07:28:40| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: morbius
+2024-01-28 07:28:40| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: a serbian film
+2024-01-28 07:28:40| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: 28 days later
+2024-01-28 07:28:40| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: virus
+2024-01-28 07:28:41| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: alien
+2024-01-28 07:28:41| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: american psycho
+2024-01-28 07:28:43| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the old dark house
+2024-01-28 07:28:43| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: infinity pool
+2024-01-28 07:28:45| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: barbarian
+2024-01-28 07:28:45| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: it comes at night
+2024-01-28 07:28:46| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: sunrise
+2024-01-28 07:28:46| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: meg 2: the trench
+2024-01-28 07:28:46| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: nope
+2024-01-28 07:28:47| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the hunt
+2024-01-28 07:28:48| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-28 07:28:48| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('full-size cover url')
+2024-01-28 07:28:48| [36;20m[1m   _images[0m[0m [33;20m WARNING[0m| no movie url: 'full-size cover url'
+2024-01-28 07:32:44| [36;20m[1m  __init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-28 07:33:07| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-28 07:33:07| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: abigail
+2024-01-28 07:33:08| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: godzilla minus one
+2024-01-28 07:33:08| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: night swim
+2024-01-28 07:33:13| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: x
+2024-01-28 07:33:14| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the killing of a sacred deer
+2024-01-28 07:33:15| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: dream scenario
+2024-01-28 07:33:15| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: five nights at freddy's
+2024-01-28 07:33:15| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: a haunting in venice
+2024-01-28 07:33:18| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: talk to me
+2024-01-28 07:33:26| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: thanksgiving
+2024-01-28 07:33:27| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: midsommar
+2024-01-28 07:33:30| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: nefarious
+2024-01-28 07:33:30| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: beau is afraid
+2024-01-28 07:33:30| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: pearl
+2024-01-28 07:33:34| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-28 07:33:34| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-28 07:33:34| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: nosferatu
+2024-01-28 07:33:35| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: when evil lurks
+2024-01-28 07:33:35| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the menu
+2024-01-28 07:33:35| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-28 07:33:35| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-28 07:33:35| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: alien: romulus
+2024-01-28 07:33:36| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: hereditary
+2024-01-28 07:33:41| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: morbius
+2024-01-28 07:33:41| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: a serbian film
+2024-01-28 07:33:42| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: 28 days later
+2024-01-28 07:33:42| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: virus
+2024-01-28 07:33:43| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: alien
+2024-01-28 07:33:43| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: american psycho
+2024-01-28 07:33:44| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the old dark house
+2024-01-28 07:33:45| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: infinity pool
+2024-01-28 07:33:46| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: barbarian
+2024-01-28 07:33:47| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: it comes at night
+2024-01-28 07:33:47| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: sunrise
+2024-01-28 07:33:48| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: meg 2: the trench
+2024-01-28 07:33:49| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: nope
+2024-01-28 07:33:49| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the hunt
+2024-01-28 07:33:50| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-28 07:33:50| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('full-size cover url')
+2024-01-28 07:33:50| [36;20m[1m   _images[0m[0m [33;20m WARNING[0m| no movie url: 'full-size cover url'
+2024-01-28 07:33:50| [36;20m[1m       red[0m[0m [32;20m    INFO[0m| skipping horror:2049403
+2024-01-28 07:33:50| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the shining
+2024-01-28 07:33:50| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: get out
+2024-01-28 07:33:53| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: destroy all neighbors
+2024-01-28 07:33:53| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: no one will save you
+2024-01-28 07:33:57| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the thing
+2024-01-28 07:33:58| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: lisa frankenstein
+2024-01-28 07:39:41| [36;20m[1m  __init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-28 07:39:44| [36;20m[1mapp_images[0m[0m [32;20m    INFO[0m| building image page for horror movies
+2024-01-28 07:42:02| [36;20m[1m  __init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-28 07:42:05| [36;20m[1mapp_images[0m[0m [32;20m    INFO[0m| building image page for horror movies
+2024-01-28 07:42:14| [36;20m[1mapp_images[0m[0m [33;20m WARNING[0m| b'Beetlejuice 2': b'cover_image'
+2024-01-28 07:48:09| [36;20m[1m  __init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-28 07:48:12| [36;20m[1mapp_images[0m[0m [32;20m    INFO[0m| building image page for horror movies
+2024-01-28 07:48:21| [36;20m[1mapp_images[0m[0m [33;20m WARNING[0m| b'Beetlejuice 2': b'cover_image'
+2024-01-28 07:58:09| [36;20m[1m  __init__[0m[0m [32;20m    INFO[0m| Redis is running
+2024-01-28 07:58:12| [36;20m[1m      spin[0m[0m [32;20m    INFO[0m| updating movie database with genre='horror'
+2024-01-28 07:58:25| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-28 07:58:25| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: abigail
+2024-01-28 07:58:26| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: godzilla minus one
+2024-01-28 07:58:26| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: night swim
+2024-01-28 07:58:31| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: x
+2024-01-28 07:58:32| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the killing of a sacred deer
+2024-01-28 07:58:33| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: dream scenario
+2024-01-28 07:58:34| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: five nights at freddy's
+2024-01-28 07:58:34| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: a haunting in venice
+2024-01-28 07:58:37| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: talk to me
+2024-01-28 07:58:45| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: thanksgiving
+2024-01-28 07:58:47| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: midsommar
+2024-01-28 07:58:50| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: nefarious
+2024-01-28 07:58:50| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: beau is afraid
+2024-01-28 07:58:50| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: pearl
+2024-01-28 07:58:54| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-28 07:58:54| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-28 07:58:54| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: nosferatu
+2024-01-28 07:58:54| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: when evil lurks
+2024-01-28 07:58:55| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the menu
+2024-01-28 07:58:56| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-28 07:58:56| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('videos')
+2024-01-28 07:58:56| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: alien: romulus
+2024-01-28 07:58:56| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: hereditary
+2024-01-28 07:59:02| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: morbius
+2024-01-28 07:59:03| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: a serbian film
+2024-01-28 07:59:03| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: 28 days later
+2024-01-28 07:59:04| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: virus
+2024-01-28 07:59:04| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: alien
+2024-01-28 07:59:05| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: american psycho
+2024-01-28 07:59:06| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the old dark house
+2024-01-28 07:59:07| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: infinity pool
+2024-01-28 07:59:09| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: barbarian
+2024-01-28 07:59:10| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: it comes at night
+2024-01-28 07:59:10| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: sunrise
+2024-01-28 07:59:11| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: meg 2: the trench
+2024-01-28 07:59:12| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: nope
+2024-01-28 07:59:13| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the hunt
+2024-01-28 07:59:14| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('runtimes')
+2024-01-28 07:59:14| [36;20m[1m       red[0m[0m [33;20m WARNING[0m| error=KeyError('full-size cover url')
+2024-01-28 07:59:14| [36;20m[1m   _images[0m[0m [33;20m WARNING[0m| no movie url: 'full-size cover url'
+2024-01-28 07:59:14| [36;20m[1m       red[0m[0m [32;20m    INFO[0m| skipping horror:2049403
+2024-01-28 07:59:14| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the shining
+2024-01-28 07:59:14| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: get out
+2024-01-28 07:59:17| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: destroy all neighbors
+2024-01-28 07:59:18| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: no one will save you
+2024-01-28 07:59:22| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: the thing
+2024-01-28 07:59:22| [36;20m[1m   _images[0m[0m [32;20m    INFO[0m| Already have it: lisa frankenstein
+2024-01-28 07:59:24| [36;20m[1m      spin[0m[0m [32;20m    INFO[0m| updating movie database with genre='drama'

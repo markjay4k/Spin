@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from red import Database
 import streamlit as st
 import clogger

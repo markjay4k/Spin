@@ -6,11 +6,12 @@ import subprocess
 import requests
 import clogger
 import PTN
+import os
 
 
 class ImEdit:
     def __init__(self):
-        self.log = clogger.log('INFO', logger_name='Image')
+        self.log = clogger.log(os.getenv('LOG_LEVEL'), logger_name='Image')
         self.jfdb = '/store/media/jellyfin/media/movies'
         self.parser = PTN
         self.jf_movie_titles = self._jf_movies()
@@ -64,10 +65,10 @@ class ImEdit:
         else:
             movie_title = movie['title'].lower()
             if movie_title in self.jf_movie_titles:
-                self.log.info(f'Already have it: {movie_title}')
+                self.log.info(f' Is in JFDB: {movie_title}')
                 return self._add_border(image_url)
             else:
-                self.log.info(f'Already have it: {movie_title}')
+                self.log.info(f'Not in JFDB: {movie_title}')
                 return self._download_bytes(image_url)
 
 

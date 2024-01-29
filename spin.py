@@ -1,12 +1,14 @@
 from movies import Movies
 import argparse
-import clogger
 import time
+import os
+import __init__
+import clogger
 
 
 def sync(args):
     genres = args.genres
-    log = clogger.log('INFO')
+    log = clogger.log(os.getenv('LOG_LEVEL'), logger_name=__name__)
     mov = Movies()
     for genre in genres:
         try:

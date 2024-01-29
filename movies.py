@@ -7,6 +7,7 @@ from imdb import Cinemagoer
 from imdb import IMDbError
 from red import Database
 import clogger
+import os
 import __init__
 
 
@@ -17,7 +18,7 @@ class Movies:
     def __init__(self):
         self.imdb_client = Cinemagoer()
         self.movie_db = Database()
-        self.log = clogger.log(level='INFO', logger_name='movies')
+        self.log = clogger.log(level=os.getenv('LOG_LEVEL'), logger_name='movies')
 
     def _get_movie(self, movie_id: str):
         return self.imdb_client.get_movie(movie_id)

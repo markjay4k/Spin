@@ -14,6 +14,7 @@ class Database:
     set and get movies from the redis database
     to be called by Movies class
     """
+    cover_image = os.getenv('DOWNLOAD_COVER_IMAGE')
     expire_time = os.getenv('REDIS_EXPIRE_SECONDS')
     port = int(os.getenv('REDIS_PORT'))
     host = os.getenv('REDIS_IP_ADDR')
@@ -51,15 +52,17 @@ class Database:
                     movie_map[info] = movie[info][0]
             except KeyError as error:
                 self.log.warning(f'{error=}')
-        cover_img_bytes = self.cover_img.download_edit_cover(movie)
-        if cover_img_bytes:
-            movie_map['cover_image'] = cover_img_bytes
-            self.client.hmset(
-                name=f'{genre}:{movie.movieID}',
-                mapping=movie_map
-            )
-        else:
-            self.log.info(f'skipping {genre}:{movie.movieID}')
+
+        if self.cover_image:
+            cover_img_bytes = self.cover_img.download_edit_cover(movie)
+            if not cover_img_bytes:
+                self.log.info(f'skipping {genre}:{movie.movieID}')
+            else:
+                movie_map['cover_image'] = cover_img_bytes
+        self.client.hmset(
+            name=f'{genre}:{movie.movieID}',
+            mapping=movie_map
+        )
     
     def set_movies_by_genre(self, genre: str, movies: list[Movie.Movie]):
         """save the cinemagoer movie search results to redis"""

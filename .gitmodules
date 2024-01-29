@@ -1,0 +1,3 @@
+[submodule "Torrent-Api-py"]
+	path = Torrent-Api-py
+	url = git@github.com:Ryuk-me/Torrent-Api-py.git

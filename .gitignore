@@ -1,5 +1,6 @@
+Torrent-Api-py/*
 __pycache__/*
 venv/*
-.logs
+.logs/*
 .env
 

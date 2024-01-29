@@ -12,7 +12,7 @@ import os
 class ImEdit:
     def __init__(self):
         self.log = clogger.log(os.getenv('LOG_LEVEL'), logger_name='Image')
-        self.jfdb = '/store/media/jellyfin/media/movies'
+        self.jfdb = os.getenv('JF_MOVIE_DIR')
         self.parser = PTN
         self.jf_movie_titles = self._jf_movies()
 

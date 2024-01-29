@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from movies import Movies
 import argparse
 import time

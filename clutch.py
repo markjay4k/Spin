@@ -36,8 +36,11 @@ class Clutch:
         return self._curl(url)
 
     def query(self, movie, site='yts'):
+        self.log.info(f'query with {movie=}, {site=}')
         url = f'{self.api_url}/search?site={site}&query={movie}'
-        return self._curl(url)
+        self.data = self._curl(url)
+        self.log.info(f'{self.data.keys()=}')
+        return self.data
 
     def close(self):
         self.process.terminate()

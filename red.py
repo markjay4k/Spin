@@ -32,6 +32,7 @@ class Database:
     ]
 
     def __init__(self, decode: bool=True):
+        self.decode = decode
         self.log = clogger.log(level=self.log_level, logger_name='red')
         self.cover_img = ImEdit()
         self.client = redis.Redis(
@@ -41,6 +42,17 @@ class Database:
             raise ConnectionRefusedError(
                 f'Could not connect to redis: {self.host}:{self.port}'
             )
+
+    @property
+    def genres(self):
+        try:
+            genres = set([k.split(':')[0] for k in self.client.keys()])
+        except TypeError as error:
+            genres = set(
+                [k.decode('utf-8').split(':')[0] for k in self.client.keys()]
+            )
+
+        return list(genres)
 
     def _set_movie(self, genre: str, movie: Movie.Movie):
         movie_map = {}

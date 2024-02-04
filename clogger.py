@@ -91,6 +91,7 @@ def log(
         err_message = None
 
     logger = logging.getLogger(logger_name)
+    logger.propagate = False
     logger.setLevel(level)
     asctime = '{asctime:15s}'
     module = '{module:>10s}'

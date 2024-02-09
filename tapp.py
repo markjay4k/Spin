@@ -65,7 +65,7 @@ def torrent_query():
                     'name', 'year', 'size', 'seeders', 'leechers',
                     'codec', 'resolution', 'date', 
                     'poster', 'language', 'magnet'
-                ]
+                ],
                 column_config={
                     'name': st.column_config.TextColumn(
                         'name', disabled=True
@@ -76,10 +76,10 @@ def torrent_query():
                     'date': st.column_config.TextColumn(
                         'uploaded', disabled=True
                     ),
-                    'seeders': st.column_config.TextColumn(
+                    'seeders': st.column_config.NumberColumn(
                         'seeders', disabled=True
                     ),
-                    'leechers': st.column_config.TextColumn(
+                    'leechers': st.column_config.NumberColumn(
                         'leechers', disabled=True
                     ),
                     'poster':  st.column_config.ImageColumn(
@@ -88,8 +88,8 @@ def torrent_query():
                     'magnet': st.column_config.TextColumn(
                         'magnet', disabled=True
                     ),
-                    'year': st.column_config.TextColumn(
-                        'year', disabled=True
+                    'year': st.column_config.NumberColumn(
+                        'year', format="%4d", disabled=True
                     ),
                     'codec': st.column_config.TextColumn(
                         'codec', disabled=True

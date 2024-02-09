@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import requests
 import clogger
 import json
@@ -67,27 +68,43 @@ class Clutch:
                         elif isinstance(info[key], str):
                             results[key].append([info[key]])
                         else:
-                            retsults[key].append(None)
+                            results[key].append(None)
                     else:
-                        results[key].append(str(info[key]))
+                        try:
+                            value = int(info[key])
+                        except ValueError as error:
+                            value = info[key]
+                        finally:
+                            results[key].append(value)
                 elif key in torrent.keys():
-                    results[key].append(torrent[key])
+                    if key in ('seeders', 'leechers'):
+                        try:
+                            value = int(torrent[key])
+                        except ValueError as error:
+                            value = np.nan
+                        finally:
+                            results[key].append(value)
+                    else:
+                        results[key].append(torrent[key])
                 else:
                     if key == 'language':
                         results[key].append(None)
                     else:
-                        results[key].append('NA')
+                        results[key].append(None)
 
         df = pd.DataFrame(results)
+        df['seeders'] = df['seeders'].astype('uint16')
+        df['leechers'] = df['leechers'].astype('uint16')
         df = df[df['name'].str.contains(search_str, case=False)]
-        df = df[(df['codec'] != 'NA') | (df['resolution'] != 'NA')]
+        df = df[(df['codec'] != 'NA') & (df['resolution'] != 'NA')]
+        df = df.loc[(~df['name'].str.contains('XXX', case=True))]
         return df
 
     def sites(self):
         url = f'{self.api_url}/sites'
         return self._curl(url)
 
-    def query(self, movie, site='kickass'):
+    def query(self, movie, site='kickass'): 
         self.log.info(f'query with {movie=}, {site=}')
         url = f'{self.api_url}/search?site={site}&query={movie}'
         data = self._curl(url)

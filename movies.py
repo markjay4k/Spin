@@ -20,10 +20,10 @@ class Movies:
         self.movie_db = Database()
         self.log = clogger.log(level=os.getenv('LOG_LEVEL'), logger_name='movies')
 
-    def _get_movie(self, movie_id: str):
+    def _get_movie(self, movie_id: str) -> str:
         return self.imdb_client.get_movie(movie_id)
 
-    def top40_by_genre(self, genre):
+    def top40_by_genre(self, genre) -> None:
         top_movies = self.imdb_client.get_top50_movies_by_genres(genre)[:40]
         ids = (m.movieID for m in top_movies)
         if len(top_movies) % 20 == 0:

@@ -31,7 +31,7 @@ class Database:
         'full-size cover url'
     ]
 
-    def __init__(self, decode: bool=True):
+    def __init__(self, decode: bool=True) -> None:
         self.decode = decode
         self.log = clogger.log(level=self.log_level, logger_name='red')
         self.cover_img = ImEdit()
@@ -44,17 +44,17 @@ class Database:
             )
 
     @property
-    def genres(self):
+    def genres(self) -> list[str]:
         try:
             genres = set([k.split(':')[0] for k in self.client.keys()])
         except TypeError as error:
             genres = set(
                 [k.decode('utf-8').split(':')[0] for k in self.client.keys()]
             )
+        genres = list(genres)
+        return sorted(genres)
 
-        return list(genres)
-
-    def _set_movie(self, genre: str, movie: Movie.Movie):
+    def _set_movie(self, genre: str, movie: Movie.Movie) -> None:
         movie_map = {}
         for info in self.infokeys:
             try:
@@ -76,7 +76,10 @@ class Database:
             mapping=movie_map
         )
     
-    def set_movies_by_genre(self, genre: str, movies: list[Movie.Movie]):
+    def set_movies_by_genre(
+            self, genre: str,
+            movies: list[Movie.Movie]
+    ) -> None:
         """save the cinemagoer movie search results to redis"""
         for movie in movies:
             self._set_movie(genre=genre, movie=movie)

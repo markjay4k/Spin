@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import pandas as pd
 import numpy as np
 import requests
@@ -39,7 +41,8 @@ class Clutch:
         if isinstance(entry, str):
             return entry
         elif isinstance(entry, list):
-            return entry[0]
+            n_pics = len(entry) // 2
+            return entry[n_pics]
 
     def _data2df(self, data, search_str):
         results = {

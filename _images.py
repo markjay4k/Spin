@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from io import BytesIO
+from imdb import Movie
 from PIL import Image
 import subprocess
 import requests
@@ -30,7 +31,7 @@ class ImEdit:
                 jf_movie_titles.append(title)
         return jf_movie_titles
 
-    def _image2bytes(self, image):
+    def _image2bytes(self, image: list[bytes]) -> bytes:
         byte_array = BytesIO()
         image.save(byte_array, format='PNG')
         return byte_array.getvalue()
@@ -56,7 +57,22 @@ class ImEdit:
         bordered_image.paste(image, (thickness, thickness))
         return self._image2bytes(bordered_image)
     
-    def download_edit_cover(self, movie, border=5, color='pink'):
+    def isin_jellyfin(self, movie: Movie.Movie) -> bool:
+        movie_title = movie[b'title'].lower()
+        movie_title = movie_title.decode('utf-8')
+        if movie_title in self.jf_movie_titles:
+            self.log.debug(f' movie is in JFDB: {movie_title}')
+            return True 
+        else:
+            self.log.debug(f'movie not in JFDB: {movie_title}')
+            return False 
+
+    def download_edit_cover(
+            self, 
+            movie: Movie.Movie, 
+            border: int=5,
+            color: str='pink'
+        ) -> list[bytes]:
         try:
             image_url = movie['full-size cover url']
         except KeyError as e:

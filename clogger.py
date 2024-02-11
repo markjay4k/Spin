@@ -89,7 +89,7 @@ def log(
         level = logging.INFO
     else:
         err_message = None
-
+    
     logger = logging.getLogger(logger_name)
     logger.propagate = False
     logger.setLevel(level)

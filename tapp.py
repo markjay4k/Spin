@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
 
+from typing import Iterator
 from clutch import Clutch
 from red import Database
+from _images import ImEdit
+from imdb import Movie
+from io import BytesIO
+from PIL import Image
 import streamlit as st
 import pandas as pd
+import requests
 import clogger
 import time
 import os
@@ -40,7 +46,7 @@ def search_cb(search_str, search_col):
     msg = st.toast(f'searching for {search_str}...')
     df = tapi.query(torrent_search, site='kickass')
     df['size'] = df['size'].map(_togb, na_action='ignore')
-    with search_col[0]:
+    with search_col:
         st.dataframe(
             data=df, 
             column_order=list(column_config.keys()),
@@ -52,10 +58,14 @@ def search_cb(search_str, search_col):
 
 
 @st.cache_data
-def display_images_in_grid(genre, columns):
+def display_images_in_grid(genre: str, columns: int) -> None:
     st.header(f'{genre.upper()} MOVIES')
     log.info(f'building image page for {genre} movies')
     for index, (movie, url) in enumerate(_cover_urls(genre=genre)):
+        if jfdb.isin_jellyfin(movie):
+            emoji = '🗹' 
+        else:
+            emoji = '' 
         if index % columns == 0: 
             cols = st.columns(columns, gap='small')
         with cols[index % columns]:
@@ -65,12 +75,12 @@ def display_images_in_grid(genre, columns):
             _title = _decode(movie[title_key])
             _plot = _decode(movie[b'plot']) 
             st.caption(
-                body=_title,
+                body=f'{emoji} {_title}',
                 help=f"__{_title} ({_year})__\n\r{_plot}"
             )
 
 
-def _cover_urls(genre):
+def _cover_urls(genre: str) -> Iterator[tuple[Movie.Movie, str]]:
     movies = db.get_movies_by_genre(genre=genre)
     for movie in movies:
         try:
@@ -84,6 +94,7 @@ def _cover_urls(genre):
 
 log = clogger.log(os.getenv('LOG_LEVEL'), logger_name=__name__)
 log.propagate = False
+jfdb = ImEdit()
 cover_key = b'full-size cover url'
 title_key = b'title'
 tapi = Clutch()
@@ -103,21 +114,21 @@ movie_columns = 6
 
 with tabs['SEARCH']:
     st.title('TORRENT-API SEARCH')
-    col_text, col_button = st.columns([4, 1])
-    df_col = st.columns(1)
+    col_text= st.columns(1).pop()
+    df_col = st.columns(1).pop()
     with col_text:
         torrent_search = st.text_input(
-            label='torrent search', value='', 
-            help='search for a torrent by name using torrent-API'
+            label='torrent search', value='',
+            key='torrent_search_input',
+            help='search for a torrent by name using torrent-API',
+            placeholder='enter movie name and press enter to search'
         )
-    with col_button:
-        search_button = st.button(
-            'search', key='search', 
-            help='search for torrent with torrent-API',
-            use_container_width=False,
-            on_click=search_cb, args=(torrent_search, df_col)
-        )
+    if 'search_previous_input' not in st.session_state:
+        st.session_state.search_previous_input = "" 
 
+    if torrent_search != st.session_state.search_previous_input:
+        search_cb(torrent_search, df_col)  
+        st.session_state.search_previous_input = torrent_search
 
 for genre, tab in tabs.items():
     with tab:

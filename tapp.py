@@ -2,6 +2,7 @@
 
 from typing import Iterator
 from clutch import Clutch
+from tagent import Agent
 from red import Database
 from _images import ImEdit
 from imdb import Movie
@@ -27,8 +28,16 @@ def _togb(size: str) -> float:
     return size
 
 
-def search_cb(search_str, search_col):
-    if search_str == '':
+@st.cache_data
+def _result_df(_search_str):
+    df = tapi.query(_search_str, site='kickass')
+    df['size'] = df['size'].map(_togb, na_action='ignore')
+    df['DL'] = pd.Series(['no'] * df.shape[0], dtype='category')
+    return df
+
+
+def _search_cb(_search_str, _search_col):
+    if _search_str == '':
         return
     column_config={
         'name': st.column_config.TextColumn('name', disabled=True), 
@@ -42,12 +51,14 @@ def search_cb(search_str, search_col):
         'language': st.column_config.ListColumn('languages', width='medium'),
         'codec': st.column_config.TextColumn('codec', disabled=True),
         'magnet': st.column_config.TextColumn('magnet', disabled=True),
+        'DL': st.column_config.SelectboxColumn(
+            'DL', required=True, options=['no', 'yes']
+        ),
     }
-    msg = st.toast(f'searching for {search_str}...')
-    df = tapi.query(torrent_search, site='kickass')
-    df['size'] = df['size'].map(_togb, na_action='ignore')
-    with search_col:
-        st.dataframe(
+    msg = st.toast(f'searching for {_search_str}...')
+    df = _result_df(_search_str)
+    with _search_col:
+        st.data_editor(
             data=df, 
             column_order=list(column_config.keys()),
             column_config=column_config,
@@ -97,7 +108,10 @@ log.propagate = False
 jfdb = ImEdit()
 cover_key = b'full-size cover url'
 title_key = b'title'
+
 tapi = Clutch()
+agent = Agent()
+
 st.set_page_config(
     page_title=f'SPIN',
     initial_sidebar_state='auto',
@@ -127,7 +141,7 @@ with tabs['SEARCH']:
         st.session_state.search_previous_input = "" 
 
     if torrent_search != st.session_state.search_previous_input:
-        search_cb(torrent_search, df_col)  
+        _search_cb(torrent_search, df_col)  
         st.session_state.search_previous_input = torrent_search
 
 for genre, tab in tabs.items():

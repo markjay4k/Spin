@@ -11,17 +11,20 @@ import __init__
 
 
 class Clutch:
+    """
+    API for torrent-API-py
+    """
     host = os.getenv('TORRENT_API_HOST')
     port = os.getenv('TORRENT_API_PORT')
     path = os.getenv('TORRENT_API_PATH')
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.api_url = f'http://{self.host}:{self.port}/api/v1'
         self.log = clogger.log(os.getenv('LOG_LEVEL'), logger_name='clutch')
         self.log.propagate = False
         self.connect()
 
-    def connect(self):
+    def connect(self) -> None:
         try:
             requests.get(self.api_url)
         except Exception as error:
@@ -32,7 +35,7 @@ class Clutch:
                 cmd, stdout=logfile, stderr=subprocess.STDOUT
             )
 
-    def _curl(self, url):
+    def _curl(self, url: str) -> dict:
         resp = requests.get(url)
         resp = resp.content.decode('utf-8')
         return json.loads(resp)
@@ -44,7 +47,7 @@ class Clutch:
             n_pics = len(entry) // 2
             return entry[n_pics]
 
-    def _data2df(self, data, search_str):
+    def _data2df(self, data: dict, search_str: str) -> pd.DataFrame:
         results = {
             'name': [], 'size': [], 'date': [],
             'seeders': [], 'leechers': [],

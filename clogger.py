@@ -90,38 +90,44 @@ def log(
     else:
         err_message = None
     
-    logger = logging.getLogger(logger_name)
-    logger.propagate = False
-    logger.setLevel(level)
-    asctime = '{asctime:15s}'
-    module = '{module:>10s}'
-    levelname = '#c{levelname:>8s}#r'
-    message = '{message}'
-    if msecs:
-        _msecs = '.{msecs:03.0f}'
+    logdict = logging.root.manager.loggerDict
+    if logger_name in logdict.keys():
+        return logdict[logger_name]
     else:
-        _msecs = ''
-    formatter = ColorFormatter(
-        fmt=f'{asctime}{_msecs}| {mod.aqua(module)} {levelname}| {message}',
-        datefmt='%Y-%m-%d %H:%M:%S',
-        style='{'
-   )
-    if not os.path.isdir(logdir): 
-        os.mkdir(logdir)
+        logger = logging.getLogger(logger_name)
+        logger.propagate = False
+        logger.setLevel(level)
+        asctime = '{asctime:15s}'
+        module = '{module:>10s}'
+        levelname = '#c{levelname:>8s}#r'
+        message = '{message}'
+        if msecs:
+            _msecs = '.{msecs:03.0f}'
+        else:
+            _msecs = ''
+        formatter = ColorFormatter(
+            fmt=f'{asctime}{_msecs}| {mod.aqua(module)} {levelname}| {message}',
+            datefmt='%Y-%m-%d %H:%M:%S',
+            style='{'
+   )    
+        if not os.path.isdir(logdir): 
+            os.mkdir(logdir)
 
-    file_handler = RotatingFileHandler(
-        f'{logdir}/{os.path.split(os.path.abspath("."))[-1]}.log',
-        mode='a', maxBytes=max_bytes,
-        backupCount=backup_count, encoding=None, 
-        delay=0
-    )
-    file_handler.setLevel(level)
-    file_handler.setFormatter(formatter)
-    logger.addHandler(file_handler)
-    console_handler = logging.StreamHandler(sys.stdout)
-    console_handler.setFormatter(formatter)
-    logger.addHandler(console_handler)
-    if err_message is not None:
-        logger.warning(f'{err_mesage}. level options: {list(loglevel.keys())}')
-    return logger
+        file_handler = RotatingFileHandler(
+            f'{logdir}/{os.path.split(os.path.abspath("."))[-1]}.log',
+            mode='a', maxBytes=max_bytes,
+            backupCount=backup_count, encoding=None, 
+            delay=0
+        )
+        file_handler.setLevel(level)
+        file_handler.setFormatter(formatter)
+        logger.addHandler(file_handler)
+        console_handler = logging.StreamHandler(sys.stdout)
+        console_handler.setFormatter(formatter)
+        logger.addHandler(console_handler)
+        if err_message is not None:
+            logger.warning(
+                f'{err_mesage}. level options: {list(loglevel.keys())}'
+            )
+        return logger
 

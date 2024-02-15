@@ -21,9 +21,9 @@ def _decode(key: bytes) -> str:
 
 
 def _togb(size: str) -> float:
-    pf = (('KB', ''), ('MB', '1e3'), ('GB', 'e6'), (' ', ''))
+    pf = (('KB', ''), ('MB', 'e3'), ('GB', 'e6'), (' ', ''))
     for switch in pf:
-        size = size.replace(*switch)
+        size = size.upper().replace(*switch)
     size = float(size) / 1e6
     return size
 

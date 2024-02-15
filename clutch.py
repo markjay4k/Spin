@@ -56,6 +56,9 @@ class Clutch:
             'resolution': [], 
             'language': []
         }
+        if 'data' not in data.keys():
+            return pd.DataFrame(results)
+
         for torrent in data['data']:
             info = PTN.parse(torrent['name'])
             for key in results:

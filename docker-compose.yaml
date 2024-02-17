@@ -16,6 +16,8 @@ services:
   spin:
     container_name: spin
     restart: unless-stopped
+    depends_on:
+      - redis
     security_opt:
       - no-new-privileges:true
     networks:
@@ -40,8 +42,6 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-      depends_on:
-        - redis
       args:
         - DOWNLOAD_COVER_IMAGE=${DOWNLOAD_COVER_IMAGE}
         - DATABASE_NETWORK=${DATABASE_NETWORK}

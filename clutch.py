@@ -18,6 +18,18 @@ class Clutch:
     port = os.getenv('TORRENT_API_PORT')
     path = os.getenv('TORRENT_API_PATH')
 
+    categories = ['name', 'size', 'seeders', 'magnet', 'date']
+    goodsites = [
+        'torlock',
+        'magnetdl',
+        'nyaasi',
+        'piratebay',
+        'bitsearch',
+        'kickass',
+        'limetorrent',
+        'torrentproject'
+    ]
+
     def __init__(self) -> None:
         self.api_url = f'http://{self.host}:{self.port}/api/v1'
         self.log = clogger.log(os.getenv('LOG_LEVEL'), logger_name='clutch')
@@ -112,6 +124,12 @@ class Clutch:
     def sites(self):
         url = f'{self.api_url}/sites'
         return self._curl(url)
+
+    def _q2(self, movie, site='kickass'): 
+        self.log.info(f'query with {movie=}, {site=}')
+        url = f'{self.api_url}/search?site={site}&query={movie}'
+        data = self._curl(url)
+        return data 
 
     def query(self, movie, site='kickass'): 
         self.log.info(f'query with {movie=}, {site=}')

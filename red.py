@@ -12,9 +12,9 @@ class Database:
     """
     Redis Entertainment Database
     set and get movies from the redis database
-    to be called by Movies class
+    to be called by Movie class
     """
-    cover_image = os.getenv('DOWNLOAD_COVER_IMAGE')
+    cover_image = bool(int(os.getenv('DOWNLOAD_COVER_IMAGE')))
     expire_time = os.getenv('REDIS_EXPIRE_SECONDS')
     port = int(os.getenv('REDIS_PORT'))
     host = os.getenv('REDIS_IP_ADDR')
@@ -38,10 +38,13 @@ class Database:
         self.client = redis.Redis(
             host=self.host, port=self.port, decode_responses=decode
         )
-        if not self.client.ping():
+        if self.client.ping():
+            self.log.info(f'redis connection GOOD')
+        else:
             raise ConnectionRefusedError(
                 f'Could not connect to redis: {self.host}:{self.port}'
             )
+        
 
     @property
     def genres(self) -> list[str]:

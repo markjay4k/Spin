@@ -28,7 +28,6 @@ def _togb(size: str) -> float:
     return size
 
 
-@st.cache_data
 def _result_df(_search_str):
     df = tapi.query(_search_str, site='kickass')
     df['size'] = df['size'].map(_togb, na_action='ignore')
@@ -51,9 +50,6 @@ def _search_cb(_search_str, _search_col):
         'language': st.column_config.ListColumn('languages', width='medium'),
         'codec': st.column_config.TextColumn('codec', disabled=True),
         'magnet': st.column_config.TextColumn('magnet', disabled=True),
-        'DL': st.column_config.SelectboxColumn(
-            'DL', required=True, options=['no', 'yes']
-        ),
     }
     msg = st.toast(f'searching for {_search_str}...')
     df = _result_df(_search_str)
@@ -81,8 +77,13 @@ def display_images_in_grid(genre: str, columns: int) -> None:
             cols = st.columns(columns, gap='small')
         with cols[index % columns]:
             st.image(url, use_column_width=True)
-            _year = _decode(movie[b'original air date'])
-            _year = _year.replace('(', ' - ').replace(')', '')
+            try:
+                _year = _decode(movie[b'original air date'])
+                _year = _year.replace('(', ' - ').replace(')', '')
+            except KeyError as error:
+                log.warning(f'{error}')
+                _year = 'UNKNOWN'
+
             _title = _decode(movie[title_key])
             _plot = _decode(movie[b'plot']) 
             st.caption(

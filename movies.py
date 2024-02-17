@@ -16,9 +16,12 @@ class Movies:
     use cinemagoer top50 search to get top40 movie data by genre
     """
     def __init__(self):
-        self.imdb_client = Cinemagoer()
-        self.movie_db = Database()
         self.log = clogger.log(level=os.getenv('LOG_LEVEL'), logger_name='movies')
+        self.imdb_client = Cinemagoer()
+        try:
+            self.movie_db = Database()
+        except ConnectionRefusedError as error:
+            self.log.error(f'{error}')
 
     def _get_movie(self, movie_id: str) -> str:
         return self.imdb_client.get_movie(movie_id)

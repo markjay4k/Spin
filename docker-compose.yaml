@@ -13,6 +13,53 @@ services:
       - database
     restart: unless-stopped
 
+  spin:
+    container_name: spin
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - database
+    environment:
+      - DOWNLOAD_COVER_IMAGE=${DOWNLOAD_COVER_IMAGE}
+      - DATABASE_NETWORK=${DATABASE_NETWORK}
+      - DATABASE_NAME=${DATABASE_NAME}
+      - REDIS_EXPIRE_SECONDS=${REDIS_EXPIRE_SECONDS}
+      - REDIS_IP_ADDR=${REDIS_IP_ADDR}
+      - REDIS_PORT=${REDIS_PORT}
+      - LOG_LEVEL=${LOG_LEVEL}
+      - JF_MOVIE_DIR=${JF_MOVIE_DIR}
+      - TORRENT_API_HOST=${TORRENT_API_HOST}
+      - TORRENT_API_PORT=${TORRENT_API_PORT}
+      - TORRENT_API_PATH=${TORRENT_API_PATH}
+      - TRANSMISSION_IP=${TRANSMISSION_IP}
+      - TRANSMISSION_PORT=${TRANSMISSION_PORT}
+      - TRANSMISSION_USER=${TRANSMISSION_USER}
+      - TRANSMISSION_PASS=${TRANSMISSION_PASS}
+      - CRON_SCHEDULE=${CRON_SCHEDULE}
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      depends_on:
+        - redis
+      args:
+        - DOWNLOAD_COVER_IMAGE=${DOWNLOAD_COVER_IMAGE}
+        - DATABASE_NETWORK=${DATABASE_NETWORK}
+        - DATABASE_NAME=${DATABASE_NAME}
+        - REDIS_EXPIRE_SECONDS=${REDIS_EXPIRE_SECONDS}
+        - REDIS_IP_ADDR=${REDIS_IP_ADDR}
+        - REDIS_PORT=${REDIS_PORT}
+        - LOG_LEVEL=${LOG_LEVEL}
+        - JF_MOVIE_DIR=${JF_MOVIE_DIR}
+        - TORRENT_API_HOST=${TORRENT_API_HOST}
+        - TORRENT_API_PORT=${TORRENT_API_PORT}
+        - TORRENT_API_PATH=${TORRENT_API_PATH}
+        - TRANSMISSION_IP=${TRANSMISSION_IP}
+        - TRANSMISSION_PORT=${TRANSMISSION_PORT}
+        - TRANSMISSION_USER=${TRANSMISSION_USER}
+        - TRANSMISSION_PASS=${TRANSMISSION_PASS}
+        - CRON_SCHEDULE=${CRON_SCHEDULE}
+
 volumes:
   redis_data:
 

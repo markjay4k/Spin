@@ -9,8 +9,8 @@ import os
 class start_redis:
     def __init__(self):
         self.log = clogger.log('INFO', logger_name='init')
-        self.check_status_and_start_redis()
-        self.envs()
+        #self.check_status_and_start_redis()
+        #self.envs()
 
     def check_status_and_start_redis(self):
         inspect = [

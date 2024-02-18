@@ -83,7 +83,17 @@ def log(
         logger_name: str = __name__,
         msecs: bool = False,
     ) -> logging.Logger:
+    """
+    custom logger with colors and rotating logfiles
+
+    level: str = log level (default: "INFO")
+    logdir: str = directory to save logfiles (default: ".logs")
+    max_bytes: int = file size before rotating (default: 524288)
+    backup_count: int = max logfiles before deleting (default: 2)
+    msecs: bool = include milliseconds in entries (default: False)
     
+    return: logging.Logger = custom logger
+    """    
     loglevel = {
         'DEBUG': logging.DEBUG,
         'INFO': logging.INFO,
@@ -107,11 +117,9 @@ def log(
     else:
         module_len = max_len()
         logger = logging.getLogger(logger_name)
-        #logger.propagate = False
         logger.setLevel(level)
         asctime = '{asctime:15s}'
-        #module = '{module:>10s}'
-        module = '{:>{width}s}'.format('module', width=module_len)
+        module = '{module:>' + str(module_len) + 's}'
         levelname = '#c{levelname:>8s}#r'
         message = '{message}'
         if msecs:

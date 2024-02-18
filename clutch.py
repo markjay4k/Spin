@@ -20,14 +20,14 @@ class Clutch:
 
     categories = ['name', 'size', 'seeders', 'magnet', 'date']
     goodsites = [
-        'torlock',
-        'magnetdl',
-        'nyaasi',
+        'torrentproject',
+        'limetorrent',
         'piratebay',
         'bitsearch',
+        'magnetdl',
         'kickass',
-        'limetorrent',
-        'torrentproject'
+        'torlock',
+        'nyaasi',
     ]
 
     def __init__(self) -> None:
@@ -58,6 +58,32 @@ class Clutch:
         elif isinstance(entry, list):
             n_pics = len(entry) // 2
             return entry[n_pics]
+
+    def _lime2df(self, data: dict, search_str: str) -> pd.DataFrame:
+        results = {
+            'title': [],
+            'name': [], 'size': [],
+            'date': [], 'category': [],
+            'seeders': [], 'leechers': [],
+            'magnet': [], 'year': [],
+            'codec': [], 'resolution': []
+        }
+        for torr in data['data']:
+            info = PTN.parse(torr['name'])
+            for key in results.keys():
+                if key in torr.keys():
+                    results[key].append(torr[key])
+                elif key in info.keys():
+                    results[key].append(info[key])
+                else:
+                    results[key].append('NA')
+        df = pd.DataFrame(results)
+        df['seeders'] = df['seeders'].astype('uint16')
+        df['leechers'] = df['leechers'].astype('uint16')
+        df = df[df['name'].str.contains(search_str, case=False)]
+        df = df[df['magnet'] != 'NA']
+        df = df.loc[(~df['name'].str.contains('XXX', case=True))]
+        return df
 
     def _data2df(self, data: dict, search_str: str) -> pd.DataFrame:
         results = {
@@ -131,11 +157,11 @@ class Clutch:
         data = self._curl(url)
         return data 
 
-    def query(self, movie, site='kickass'): 
-        self.log.info(f'query with {movie=}, {site=}')
+    def query(self, movie, site='limetorrent'): 
+        self.log.info(f'query: {movie=}, {site=}')
         url = f'{self.api_url}/search?site={site}&query={movie}'
         data = self._curl(url)
-        df =self._data2df(data=data, search_str=movie)
+        df =self._lime2df(data=data, search_str=movie)
         return df
 
     def close(self):

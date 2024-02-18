@@ -64,6 +64,17 @@ class ColorFormatter(logging.Formatter):
         return super().format(record)
 
 
+def max_len():
+    maxlen = max([
+        len(x.name.split('.py')[0]) for x in os.scandir('.') \
+        if x.name.endswith('.py') and x.is_file()
+    ])
+    if maxlen > 1:
+        return maxlen
+    else:
+        return 5
+
+
 def log(
         level: str = 'INFO',
         logdir: str = '.logs',
@@ -94,11 +105,13 @@ def log(
     if logger_name in logdict.keys():
         return logdict[logger_name]
     else:
+        module_len = max_len()
         logger = logging.getLogger(logger_name)
-        logger.propagate = False
+        #logger.propagate = False
         logger.setLevel(level)
         asctime = '{asctime:15s}'
-        module = '{module:>10s}'
+        #module = '{module:>10s}'
+        module = '{:>{width}s}'.format('module', width=module_len)
         levelname = '#c{levelname:>8s}#r'
         message = '{message}'
         if msecs:

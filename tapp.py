@@ -29,7 +29,7 @@ def _togb(size: str) -> float:
 
 
 def _result_df(_search_str):
-    df = tapi.query(_search_str, site='kickass')
+    df = tapi.query(_search_str, site='limetorrent')
     df['size'] = df['size'].map(_togb, na_action='ignore')
     df['DL'] = pd.Series(['no'] * df.shape[0], dtype='category')
     return df
@@ -39,15 +39,15 @@ def _search_cb(_search_str, _search_col):
     if _search_str == '':
         return
     column_config={
+        'title': st.column_config.TextColumn('title', disabled=True), 
         'name': st.column_config.TextColumn('name', disabled=True), 
         'size': st.column_config.NumberColumn('size (GB)', format='%.1f', disabled=True),
         'date': st.column_config.TextColumn('uploaded', disabled=True),
         'seeders': st.column_config.NumberColumn('seeders', disabled=True),
         'leechers': st.column_config.NumberColumn('leechers', disabled=True),
-        'poster':  st.column_config.ImageColumn('poster', width='small'),
         'year': st.column_config.NumberColumn('year', format="%4d", disabled=True),
         'resolution': st.column_config.TextColumn('resolution', disabled=True),
-        'language': st.column_config.ListColumn('languages', width='medium'),
+        'category': st.column_config.ListColumn('category', width='small'),
         'codec': st.column_config.TextColumn('codec', disabled=True),
         'magnet': st.column_config.TextColumn('magnet', disabled=True),
     }

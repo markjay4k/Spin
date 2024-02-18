@@ -1,5 +1,5 @@
 FROM python:3.12-slim
-RUN apt update && apt -y install cron git gcc
+RUN apt-get update && apt-get -y install cron git gcc
 
 WORKDIR /app
 

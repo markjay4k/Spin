@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from transmission_rpc import Client
+from imdb import Movie
 import subprocess
 import clogger
 import PTN
@@ -16,9 +17,7 @@ class JFDB:
 
     def __init__(self):
         self.log = clogger.log(os.getenv('LOG_LEVEL'))
-        self.log.info('checking')
         self.jfdb = os.getenv('JF_MOVIE_DIR')
-        self.parser = PTN
         self.jf_movie_titles = self._jf_movies()
         self.agent = Client(
             host=self.host,
@@ -26,8 +25,9 @@ class JFDB:
             username=self.user,
             password=self.passwd,
         )
+        self.movies = self.all_movies()
 
-    def movies(self):
+    def all_movies(self):
         jfmovies = self._jf_movies()
         trmovies = self._torrents()
         all_movies = [*jfmovies, *trmovies]
@@ -40,7 +40,7 @@ class JFDB:
         jf_movie_titles = []
         for movie in movies:
             try:
-                title = self.parser.parse(movie)['title'].lower()
+                title = PTN.parse(movie)['title'].lower()
             except KeyError as error:
                 self.log.debug(f'can\'t parse title: {movie}')
             else:
@@ -56,3 +56,12 @@ class JFDB:
                 torrs.append(info['title'])
         return torrs 
 
+    def isin_jellyfin(self, movie: Movie.Movie) -> bool:
+        movie_title = movie[b'title'].lower()
+        movie_title = movie_title.decode('utf-8')
+        if movie_title in self.jf_movie_titles:
+            self.log.debug(f' movie is in JFDB: {movie_title}')
+            return True 
+        else:
+            self.log.debug(f'movie not in JFDB: {movie_title}')
+            return False 

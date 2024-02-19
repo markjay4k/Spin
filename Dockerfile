@@ -6,7 +6,7 @@ WORKDIR /app
 COPY cron_spin_scheduler.sh .
 COPY requirements.txt .
 COPY __init__.py .
-COPY _images.py .
+COPY dbcheck.py .
 COPY clogger.py .
 COPY movies.py .
 COPY spin.py .
@@ -45,6 +45,7 @@ RUN echo "TRANSMISSION_PORT=$TRANSMISSION_PORT" >> /etc/environment
 RUN echo "TRANSMISSION_USER=$TRANSMISSION_USER" >> /etc/environment
 RUN echo "TRANSMISSION_PASS=$TRANSMISSION_PASS" >> /etc/environment
 RUN echo "CRON_SCHEDULE=$CRON_SCHEDULE" >> /etc/environment
+RUN echo "WORKDIR=/app" >> /etc/environment
 
 RUN pip3 install -r requirements.txt
 

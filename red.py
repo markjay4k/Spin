@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-from _images import ImEdit 
 from imdb import Movie
 import clogger
 import redis
@@ -34,7 +33,6 @@ class Database:
     def __init__(self, decode: bool=True) -> None:
         self.decode = decode
         self.log = clogger.log(level=self.log_level, logger_name='red')
-        self.cover_img = ImEdit()
         self.client = redis.Redis(
             host=self.host, port=self.port, decode_responses=decode
         )
@@ -68,12 +66,6 @@ class Database:
             except KeyError as error:
                 self.log.warning(f'{error=}')
 
-        if self.cover_image:
-            cover_img_bytes = self.cover_img.download_edit_cover(movie)
-            if not cover_img_bytes:
-                self.log.info(f'skipping {genre}:{movie.movieID}')
-            else:
-                movie_map['cover_image'] = cover_img_bytes
         self.client.hmset(
             name=f'{genre}:{movie.movieID}',
             mapping=movie_map

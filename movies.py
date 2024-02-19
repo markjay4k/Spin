@@ -36,11 +36,13 @@ class Movies:
             with ThreadPoolExecutor(max_workers=workers) as executor:
                 movies = executor.map(self._get_movie, ids)
         except IMDbError as error:
-            self.log.warning(f'{error=}')
+            self.log.warning(f'IMDbError: {error=}')
         except HTTPError as error:
-            self.log.warning(f'{error=}')
+            self.log.warning(f'HTTPError: {error=}')
         except IMDbDataAccessError as error:
-            self.log.warning(f'{error=}')
+            self.log.warning(f'IMDbDataAccessError: {error=}')
+        except TimeoutError as error:
+            self.log.warning(f'TimeoutError: {error=}')
         else:
             self.movie_db.set_movies_by_genre(genre=genre, movies=movies)
 

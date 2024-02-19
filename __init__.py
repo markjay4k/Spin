@@ -14,13 +14,16 @@ class start_redis:
 
     def is_running_in_docker(self):
         if os.path.exists('/.dockerenv'):
+            os.environ['WORKDIR'] = '/app'
             return True
         try:
             with open('/proc/1/cgroup', 'rt') as f:
                 if 'docker' in f.read():
+                    os.environ['WORKDIR'] = '/app'
                     return True
         except FileNotFoundError as error:
             self.log.warning(f'{error}')
+            os.environ['WORKDIR'] = '.'
             return False
 
     def docker_network(self, name):

@@ -10,7 +10,7 @@ import clogger
 
 def sync(args):
     genres = args.genres
-    log = clogger.log(os.getenv('LOG_LEVEL'), logger_name=__name__)
+    log = clogger.log(os.getenv('LOG_LEVEL'))
     mov = Movies()
     for genre in genres:
         try:

@@ -28,12 +28,9 @@ def _togb(size: str) -> float:
     return size
 
 def _checkdb(title):
-    log.info(f'checking {title}')
     if title in jfdb.movies or title.lower() in jfdb.movies:
-        log.info(f'    already have it')
         return f'🗹 {title}'
     else:
-        log.info(f'    do not have it')
         return title
 
 def _result_df(_search_str):

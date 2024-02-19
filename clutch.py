@@ -76,6 +76,10 @@ class Clutch:
                 else:
                     results[key].append('NA')
         df = pd.DataFrame(results)
+        df = self._clean_df(df, search_str)
+        return df
+
+    def _clean_df(self, df, search_str):
         df['seeders'] = df['seeders'].astype('uint16')
         df['leechers'] = df['leechers'].astype('uint16')
         df = df[df['name'].str.contains(search_str, case=False)]
@@ -94,7 +98,6 @@ class Clutch:
         }
         if 'data' not in data.keys():
             return pd.DataFrame(results)
-
         for torrent in data['data']:
             info = PTN.parse(torrent['name'])
             for key in results:
@@ -136,13 +139,8 @@ class Clutch:
                         results[key].append(None)
                     else:
                         results[key].append(None)
-
         df = pd.DataFrame(results)
-        df['seeders'] = df['seeders'].astype('uint16')
-        df['leechers'] = df['leechers'].astype('uint16')
-        df = df[df['name'].str.contains(search_str, case=False)]
-        df = df[(df['codec'] != 'NA') & (df['resolution'] != 'NA')]
-        df = df.loc[(~df['name'].str.contains('XXX', case=True))]
+        df = self._clean_df(df, search_str)
         return df
 
     def sites(self):

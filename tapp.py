@@ -27,9 +27,18 @@ def _togb(size: str) -> float:
     size = float(size) / 1e6
     return size
 
+def _checkdb(title):
+    log.info(f'checking {title}')
+    if title in jfdb.movies or title.lower() in jfdb.movies:
+        log.info(f'    already have it')
+        return f'🗹 {title}'
+    else:
+        log.info(f'    do not have it')
+        return title
 
 def _result_df(_search_str):
     df = tapi.query(_search_str, site='limetorrent')
+    df['title'] = df['title'].map(_checkdb)
     df['size'] = df['size'].map(_togb, na_action='ignore')
     df['DL'] = pd.Series(['no'] * df.shape[0], dtype='category')
     return df
@@ -106,10 +115,10 @@ def _cover_urls(genre: str) -> Iterator[tuple[Movie.Movie, str]]:
 
 log = clogger.log(os.getenv('LOG_LEVEL'))
 log.propagate = False
-jfdb = JFDB() 
 cover_key = b'full-size cover url'
 title_key = b'title'
 
+jfdb = JFDB() 
 tapi = Clutch()
 agent = Agent()
 

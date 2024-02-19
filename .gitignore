@@ -3,3 +3,4 @@ __pycache__/*
 venv/*
 .logs/*
 .env
+_images.py

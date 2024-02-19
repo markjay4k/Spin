@@ -16,7 +16,7 @@ class Movies:
     use cinemagoer top50 search to get top40 movie data by genre
     """
     def __init__(self):
-        self.log = clogger.log(level=os.getenv('LOG_LEVEL'), logger_name='movies')
+        self.log = clogger.log(level=os.getenv('LOG_LEVEL'))
         self.imdb_client = Cinemagoer()
         try:
             self.movie_db = Database()

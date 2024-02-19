@@ -4,7 +4,8 @@ from typing import Iterator
 from clutch import Clutch
 from tagent import Agent
 from red import Database
-from _images import ImEdit
+#from _images import ImEdit
+from dbcheck import JFDB
 from imdb import Movie
 from io import BytesIO
 from PIL import Image
@@ -104,9 +105,10 @@ def _cover_urls(genre: str) -> Iterator[tuple[Movie.Movie, str]]:
             yield (movie, url)
 
 
-log = clogger.log(os.getenv('LOG_LEVEL'), logger_name=__name__)
+log = clogger.log(os.getenv('LOG_LEVEL'))
 log.propagate = False
-jfdb = ImEdit()
+#jfdb = ImEdit()
+jfdb = JFDB() 
 cover_key = b'full-size cover url'
 title_key = b'title'
 

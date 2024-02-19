@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from transmission_rpc import torrent
 from transmission_rpc import Client
 import clogger
@@ -14,7 +16,7 @@ class Agent:
     passwd = os.getenv('TRANSMISSION_PASS')
 
     def __init__(self):
-        self.log = clogger.log(os.getenv('LOG_LEVEL'), logger_name='tagent')
+        self.log = clogger.log(os.getenv('LOG_LEVEL'))
         self.agent = Client(
             host=self.host,
             port=self.port,

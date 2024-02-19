@@ -11,9 +11,7 @@ import __init__
 
 
 class Clutch:
-    """
-    API for torrent-API-py
-    """
+    """API for torrent-API-py"""
     host = os.getenv('TORRENT_API_HOST')
     port = os.getenv('TORRENT_API_PORT')
     path = os.getenv('TORRENT_API_PATH')
@@ -32,7 +30,7 @@ class Clutch:
 
     def __init__(self) -> None:
         self.api_url = f'http://{self.host}:{self.port}/api/v1'
-        self.log = clogger.log(os.getenv('LOG_LEVEL'), logger_name='clutch')
+        self.log = clogger.log(os.getenv('LOG_LEVEL'))
         self.log.propagate = False
         self.connect()
 
@@ -85,7 +83,7 @@ class Clutch:
         df = df.loc[(~df['name'].str.contains('XXX', case=True))]
         return df
 
-    def _data2df(self, data: dict, search_str: str) -> pd.DataFrame:
+    def _kickass2df(self, data: dict, search_str: str) -> pd.DataFrame:
         results = {
             'name': [], 'size': [], 'date': [],
             'seeders': [], 'leechers': [],
@@ -161,7 +159,22 @@ class Clutch:
         self.log.info(f'query: {movie=}, {site=}')
         url = f'{self.api_url}/search?site={site}&query={movie}'
         data = self._curl(url)
-        df =self._lime2df(data=data, search_str=movie)
+        if site == 'limetorrent':
+            df = self._lime2df(data=data, search_str=movie)
+        elif site == 'kickass':
+            df = self._kickass2df(data=data, search_str=movie)
+        else:
+            self.log.warning(f'{site=} not supported')
+            df = pd.DataFrame(
+                results = {
+                    'title': [],
+                    'name': [], 'size': [],
+                    'date': [], 'category': [],
+                    'seeders': [], 'leechers': [],
+                    'magnet': [], 'year': [],
+                    'codec': [], 'resolution': []
+                }
+            )
         return df
 
     def close(self):

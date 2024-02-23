@@ -80,12 +80,21 @@ class Clutch:
         return df
 
     def _clean_df(self, df, search_str):
-        df['seeders'] = df['seeders'].astype('uint16')
-        df['leechers'] = df['leechers'].astype('uint16')
+        try:
+            df['seeders'] = df['seeders'].astype('uint16')
+            df['leechers'] = df['leechers'].astype('uint16')
+        except ValueError as error:
+            df['seeders'] = df['seeders'].map(self._replace).astype('uint16')
+            df['leechers'] = df['leechers'].map(self._replace).astype('uint16')
+            self.log.warning(f'{error}')
+
         df = df[df['name'].str.contains(search_str, case=False)]
         df = df[df['magnet'] != 'NA']
         df = df.loc[(~df['name'].str.contains('XXX', case=True))]
         return df
+
+    def _replace(self, seed):
+        return seed.replace(',', '')
 
     def _kickass2df(self, data: dict, search_str: str) -> pd.DataFrame:
         results = {

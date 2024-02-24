@@ -27,11 +27,13 @@ def _togb(size: str) -> float:
     size = float(size) / 1e6
     return size
 
+
 def _checkdb(title):
     if title in jfdb.movies or title.lower() in jfdb.movies:
         return f'🗹 {title}'
     else:
         return title
+
 
 def _result_df(_search_str):
     df = tapi.query(_search_str, site='limetorrent')
@@ -60,7 +62,7 @@ def _search_cb(_search_str, _search_col):
     msg = st.toast(f'searching for {_search_str}...')
     df = _result_df(_search_str)
     with _search_col:
-        st.data_editor(
+        st.dataframe(
             data=df, 
             column_order=list(column_config.keys()),
             column_config=column_config,

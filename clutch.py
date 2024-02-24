@@ -33,6 +33,14 @@ class Clutch:
         self.log = clogger.log(os.getenv('LOG_LEVEL'))
         self.log.propagate = False
         self.connect()
+        self.results = {
+            'title': [],
+            'name': [], 'size': [],
+            'date': [], 'category': [],
+            'seeders': [], 'leechers': [],
+            'magnet': [], 'year': [],
+            'codec': [], 'resolution': []
+        }
 
     def connect(self) -> None:
         try:
@@ -44,6 +52,10 @@ class Clutch:
             self.process = subprocess.Popen(
                 cmd, stdout=logfile, stderr=subprocess.STDOUT
             )
+
+    def sites(self):
+        url = f'{self.api_url}/sites'
+        return self._curl(url)
 
     def _curl(self, url: str) -> dict:
         resp = requests.get(url)
@@ -58,16 +70,9 @@ class Clutch:
             return entry[n_pics]
 
     def _lime2df(self, data: dict, search_str: str) -> pd.DataFrame:
-        results = {
-            'title': [],
-            'name': [], 'size': [],
-            'date': [], 'category': [],
-            'seeders': [], 'leechers': [],
-            'magnet': [], 'year': [],
-            'codec': [], 'resolution': []
-        }
+        results = self.results.copy()
         for torr in data['data']:
-            info = PTN.parse(torr['name'])
+            info = PTN.parse()
             for key in results.keys():
                 if key in torr.keys():
                     results[key].append(torr[key])
@@ -96,66 +101,6 @@ class Clutch:
     def _replace(self, seed):
         return seed.replace(',', '')
 
-    def _kickass2df(self, data: dict, search_str: str) -> pd.DataFrame:
-        results = {
-            'name': [], 'size': [], 'date': [],
-            'seeders': [], 'leechers': [],
-            'poster': [], 'magnet': [],
-            'year': [], 'codec': [],
-            'resolution': [], 
-            'language': []
-        }
-        if 'data' not in data.keys():
-            return pd.DataFrame(results)
-        for torrent in data['data']:
-            info = PTN.parse(torrent['name'])
-            for key in results:
-                if key == 'poster':
-                    if key in torrent.keys():
-                        poster = self._cover(torrent[key])
-                    elif 'screenshot' in torrent.keys():
-                        poster = self._cover(torrent['screenshot'])
-                    else:
-                        poster = 'NA'
-                    results[key].append(poster)
-                elif key in info.keys():
-                    if key == 'language':
-                        if isinstance(info[key], list):
-                            results[key].append(info[key])
-                        elif isinstance(info[key], str):
-                            results[key].append([info[key]])
-                        else:
-                            results[key].append(None)
-                    else:
-                        try:
-                            value = int(info[key])
-                        except ValueError as error:
-                            value = info[key]
-                        finally:
-                            results[key].append(value)
-                elif key in torrent.keys():
-                    if key in ('seeders', 'leechers'):
-                        try:
-                            value = int(torrent[key])
-                        except ValueError as error:
-                            value = np.nan
-                        finally:
-                            results[key].append(value)
-                    else:
-                        results[key].append(torrent[key])
-                else:
-                    if key == 'language':
-                        results[key].append(None)
-                    else:
-                        results[key].append(None)
-        df = pd.DataFrame(results)
-        df = self._clean_df(df, search_str)
-        return df
-
-    def sites(self):
-        url = f'{self.api_url}/sites'
-        return self._curl(url)
-
     def _q2(self, movie, site='kickass'): 
         self.log.info(f'query with {movie=}, {site=}')
         url = f'{self.api_url}/search?site={site}&query={movie}'
@@ -172,16 +117,7 @@ class Clutch:
             df = self._kickass2df(data=data, search_str=movie)
         else:
             self.log.warning(f'{site=} not supported')
-            df = pd.DataFrame(
-                results = {
-                    'title': [],
-                    'name': [], 'size': [],
-                    'date': [], 'category': [],
-                    'seeders': [], 'leechers': [],
-                    'magnet': [], 'year': [],
-                    'codec': [], 'resolution': []
-                }
-            )
+            df = pd.DataFrame(self.results.copy())
         return df
 
     def close(self):

@@ -11,27 +11,26 @@ cd Spin
 ```
 create a `.env` file
 
-| `variable`           | `description`    |
--------------------------------------------
-| SPIN_PATH            | ./spin           |
-| DOWNLOAD_COVER_IMAGE | 0                |
-| DATABASE_NETWORK     | redpanda         |
-| DATABASE_NAME        | redpanda         |
-| REDIS_EXPIRE_SECONDS | 72000            |
-| REDIS_IP_ADDR        | redpanda         |
-| REDIS_PORT           | 6379             |
-| LOG_LEVEL            | INFO             |
-| JF_MOVIE_DIR         | /jellyfin/media  |
-| TORRENT_API_HOST     | `localip`        |
-| TORRENT_API_PORT     | 8009             |
-| TORRENT_API_PATH     | ./Torrent-Api-py |
-| TAGENT_PORT          | 5000             |
-| TRANSMISSION_IP      | `localip`        |
-| TRANSMISSION_PORT    | 9091             |
-| TRANSMISSION_USER    | user             |
-| TRANSMISSION_PASS    | password         |
-| CRON_SCHEDULE        | '0 4 * * *'      |
--------------------------------
+| `variable`             | `values`           |
+|------------------------|--------------------|
+| `SPIN_PATH`            | `./spin`           |
+| `DOWNLOAD_COVER_IMAGE` | `0`                |
+| `DATABASE_NETWORK`     | `redpanda`         |
+| `DATABASE_NAME`        | `redpanda`         |
+| `REDIS_EXPIRE_SECONDS` | `72000`            |
+| `REDIS_IP_ADDR`        | `redpanda`         |
+| `REDIS_PORT`           | `6379`             |
+| `LOG_LEVEL`            | `INFO`             |
+| `JF_MOVIE_DIR`         | `/jellyfin/media`  |
+| `TORRENT_API_HOST`     | `localip`          |
+| `TORRENT_API_PORT`     | `8009`             |
+| `TORRENT_API_PATH`     | `./Torrent-Api-py` |
+| `TAGENT_PORT`          | `5000`             |
+| `TRANSMISSION_IP`      | `localip`          |
+| `TRANSMISSION_PORT`    | `9091`             |
+| `TRANSMISSION_USER`    | `user`             |
+| `TRANSMISSION_PASS`    | `password`         |
+| `CRON_SCHEDULE`        | `'0 4 * * *'`      |
 
 ## CODE OVERVIEW 
 

@@ -3,15 +3,7 @@ RUN apt-get update && apt-get -y install cron git gcc
 
 WORKDIR /app
 
-COPY cron_spin_scheduler.sh .
-COPY requirements.txt .
-COPY __init__.py .
-COPY dbcheck.py .
-COPY clogger.py .
-COPY movies.py .
-COPY spin.py .
-COPY red.py .
-
+ARG SPIN_PATH
 ARG DOWNLOAD_COVER_IMAGE
 ARG DATABASE_NETWORK
 ARG DATABASE_NAME
@@ -29,6 +21,15 @@ ARG TRANSMISSION_PORT
 ARG TRANSMISSION_USER
 ARG TRANSMISSION_PASS
 ARG CRON_SCHEDULE
+
+COPY cron_spin_scheduler.sh .
+COPY requirements.txt .
+COPY $SPIN_PATH/__init__.py .
+COPY $SPIN_PATH/dbcheck.py .
+COPY $SPIN_PATH/clogger.py .
+COPY $SPIN_PATH/movies.py .
+COPY $SPIN_PATH/spin.py .
+COPY $SPIN_PATH/red.py .
 
 RUN echo "DOWNLOAD_COVER_IMAGE=$DOWNLOAD_COVER_IMAGE" >> /etc/environment
 RUN echo "DATABASE_NETWORK=$DATABASE_NETWORK" >> /etc/environment

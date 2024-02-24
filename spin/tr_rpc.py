@@ -1,7 +1,11 @@
+#!/usr/bin/env python3
+
 from urllib.parse import unquote
 from fastapi import FastAPI
 from tagent import Agent
 import uvicorn
+import __init__
+import os
 
 
 app = FastAPI(docs_url=None)
@@ -21,4 +25,9 @@ async def download_torrent(magnet: str):
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host='192.168.10.67', port=5000, log_level="info")
+    uvicorn.run(
+        app,
+        host=os.getenv('TORRENT_API_HOST'),
+        port=os.getenv('TAGENT_PORT'),
+        log_level=os.getenv('LOG_LEVEL')
+    )

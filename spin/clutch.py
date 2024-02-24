@@ -142,10 +142,11 @@ class Clutch:
             df['leechers'] = df['leechers'].map(self._replace).astype('uint16')
             self.log.warning(f'{error}')
 
-        df = df[df['name'].str.contains(search_str, case=False)]
+        df = df[df['category'].isin(['Movies'])]
         df = df[df['magnet'] != 'NA']
-        df = df[df['seeders'] >= 4]
+        df = df[df['seeders'] >= 2]
         df = df[df['size'] >= 0.5]
+        df = df[df['name'].str.contains(search_str, case=False)]
         df = df.loc[(~df['name'].str.contains('XXX', case=True))]
         df['magnet'] = df['magnet'].map(self._linker)
         return df

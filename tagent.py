@@ -8,9 +8,6 @@ import __init__
 
 
 class Agent:
-    """
-    transmission bittorrent client API
-    """
     host = os.getenv('TRANSMISSION_IP')
     port = os.getenv('TRANSMISSION_PORT')
     user = os.getenv('TRANSMISSION_USER')

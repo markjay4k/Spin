@@ -8,6 +8,11 @@ app = FastAPI(docs_url=None)
 agent = Agent()
 
 
+@app.get("/ping")
+async def ping():
+    return {'ping': 'successful'}
+
+
 @app.get("/download/{magnet}")
 async def download_torrent(magnet: str):
     magnet = unquote(magnet)

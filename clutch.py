@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+from urllib.parse import quote
+from dbcheck import JFDB
 import pandas as pd
 import numpy as np
 import requests
@@ -15,6 +17,7 @@ class Clutch:
     host = os.getenv('TORRENT_API_HOST')
     port = os.getenv('TORRENT_API_PORT')
     path = os.getenv('TORRENT_API_PATH')
+    tagent_port = os.getenv('TAGENT_PORT')
 
     categories = ['name', 'size', 'seeders', 'magnet', 'date']
     goodsites = [
@@ -32,6 +35,7 @@ class Clutch:
         self.api_url = f'http://{self.host}:{self.port}/api/v1'
         self.log = clogger.log(os.getenv('LOG_LEVEL'))
         self.log.propagate = False
+        self.jfdb = JFDB() 
         self.connect()
         self.results = {
             'title': [],
@@ -72,19 +76,46 @@ class Clutch:
     def _lime2df(self, data: dict, search_str: str) -> pd.DataFrame:
         results = self.results.copy()
         for torr in data['data']:
-            info = PTN.parse()
+            info = PTN.parse(torr['name'])
             for key in results.keys():
                 if key in torr.keys():
                     results[key].append(torr[key])
                 elif key in info.keys():
                     results[key].append(info[key])
                 else:
-                    results[key].append('NA')
+                    if key in ('seeders', 'leechers', 'year'):
+                        results[key].append(0)
+                    else:
+                        results[key].append('NA')
         df = pd.DataFrame(results)
         df = self._clean_df(df, search_str)
         return df
 
+    def _togb(self, size: str) -> float:
+        pf = (('KB', ''), ('MB', 'e3'), ('GB', 'e6'), (' ', ''))
+        for switch in pf:
+            size = size.upper().replace(*switch)
+        size = float(size) / 1e6
+        return size
+
+    def _checkdb(self, title: str) -> str:
+        if title in self.jfdb.movies or title.lower() in self.jfdb.movies:
+            return f'🗹 {title}'
+        else:
+            return title
+
+    def _linker(self, magnet):
+        magnet = quote(magnet, safe='')
+        url = f'http://{self.host}:{self.tagent_port}/download/{magnet}'
+        return url
+
+    def _replace(self, seed):
+        return seed.replace(',', '')
+
     def _clean_df(self, df, search_str):
+        df['size'] = df['size'].map(self._togb, na_action='ignore')
+        df['title'] = df['title'].map(self._checkdb)
+        df = df[df['seeders'] != 'NA']
         try:
             df['seeders'] = df['seeders'].astype('uint16')
             df['leechers'] = df['leechers'].astype('uint16')
@@ -95,11 +126,11 @@ class Clutch:
 
         df = df[df['name'].str.contains(search_str, case=False)]
         df = df[df['magnet'] != 'NA']
+        df = df[df['seeders'] >= 4]
+        df = df[df['size'] >= 0.5]
         df = df.loc[(~df['name'].str.contains('XXX', case=True))]
+        df['magnet'] = df['magnet'].map(self._linker)
         return df
-
-    def _replace(self, seed):
-        return seed.replace(',', '')
 
     def _q2(self, movie, site='kickass'): 
         self.log.info(f'query with {movie=}, {site=}')

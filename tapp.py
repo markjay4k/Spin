@@ -20,36 +20,15 @@ def _decode(key: bytes) -> str:
     return key.decode('utf-8') 
 
 
-def _togb(size: str) -> float:
-    pf = (('KB', ''), ('MB', 'e3'), ('GB', 'e6'), (' ', ''))
-    for switch in pf:
-        size = size.upper().replace(*switch)
-    size = float(size) / 1e6
-    return size
-
-
-def _checkdb(title):
-    if title in jfdb.movies or title.lower() in jfdb.movies:
-        return f'🗹 {title}'
-    else:
-        return title
-
-
-def _result_df(_search_str):
-    df = tapi.query(_search_str, site='limetorrent')
-    df['title'] = df['title'].map(_checkdb)
-    df['size'] = df['size'].map(_togb, na_action='ignore')
-    df['DL'] = pd.Series(['no'] * df.shape[0], dtype='category')
-    return df
-
-
 def _search_cb(_search_str, _search_col):
     if _search_str == '':
         return
     column_config={
         'title': st.column_config.TextColumn('title', disabled=True), 
         'name': st.column_config.TextColumn('name', disabled=True), 
-        'size': st.column_config.NumberColumn('size (GB)', format='%.1f', disabled=True),
+        'size': st.column_config.NumberColumn(
+            'size (GB)', format='%.1f', disabled=True
+        ),
         'date': st.column_config.TextColumn('uploaded', disabled=True),
         'seeders': st.column_config.NumberColumn('seeders', disabled=True),
         'leechers': st.column_config.NumberColumn('leechers', disabled=True),
@@ -57,10 +36,12 @@ def _search_cb(_search_str, _search_col):
         'resolution': st.column_config.TextColumn('resolution', disabled=True),
         'category': st.column_config.ListColumn('category', width='small'),
         'codec': st.column_config.TextColumn('codec', disabled=True),
-        'magnet': st.column_config.TextColumn('magnet', disabled=True),
+        'magnet': st.column_config.LinkColumn(
+            'magnet', display_text='DOWNLOAD', disabled=True
+        ),
     }
     msg = st.toast(f'searching for {_search_str}...')
-    df = _result_df(_search_str)
+    df = tapi.query(_search_str, site='limetorrent')
     with _search_col:
         st.dataframe(
             data=df, 

@@ -1,17 +1,19 @@
+from urllib.parse import unquote
 from fastapi import FastAPI
-from tagent import Tagent
+from tagent import Agent
 import uvicorn
 
 
-app = FastAPI()
-agent = Tagent()
+app = FastAPI(docs_url=None)
+agent = Agent()
 
 
-@app.get('/download/{magnet}')
-async def download_torrent(magnet):
-    agent.download(magnet)
-    return {'magnet': magnet}
+@app.get("/download/{magnet}")
+async def download_torrent(magnet: str):
+    magnet = unquote(magnet)
+    agent.download(magnet=magnet)
+    return {"magnet": magnet}
 
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host='192.168.10.67', port=5000, log_level="info")
+    uvicorn.run(app, host='192.168.10.67', port=5000, log_level="info")

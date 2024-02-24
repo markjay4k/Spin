@@ -81,7 +81,7 @@ soupsieve==2.5
 SQLAlchemy==2.0.25
 stack-data==0.6.3
 starlette==0.35.1
-streamlit==1.31.0
+streamlit==1.31.1
 tenacity==8.2.3
 textblob==0.17.1
 toml==0.10.2

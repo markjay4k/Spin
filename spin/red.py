@@ -10,8 +10,6 @@ import __init__
 class Database:
     """
     Redis Entertainment Database
-    set and get movies from the redis database
-    to be called by Movie class
     """
     cover_image = bool(int(os.getenv('DOWNLOAD_COVER_IMAGE')))
     expire_time = os.getenv('REDIS_EXPIRE_SECONDS')
@@ -42,7 +40,6 @@ class Database:
             raise ConnectionRefusedError(
                 f'Could not connect to redis: {self.host}:{self.port}'
             )
-        
 
     @property
     def genres(self) -> list[str]:
@@ -75,7 +72,7 @@ class Database:
             self, genre: str,
             movies: list[Movie.Movie]
     ) -> None:
-        """save the cinemagoer movie search results to redis"""
+        """save cinemagoer search results to redis"""
         for movie in movies:
             self._set_movie(genre=genre, movie=movie)
 

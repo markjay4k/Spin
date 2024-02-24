@@ -29,5 +29,5 @@ if __name__ == "__main__":
         app,
         host=os.getenv('TORRENT_API_HOST'),
         port=os.getenv('TAGENT_PORT'),
-        log_level=os.getenv('LOG_LEVEL')
+        log_level=os.getenv('LOG_LEVEL').lower()
     )

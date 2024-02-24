@@ -45,7 +45,7 @@ class Clutch:
             ),
             api(
                 url=f'http://{self.host}:{self.tagent_port}/ping',
-                path=f'tr_rpc.py',
+                path=f'./spin/tr_rpc.py',
                 name='tr_rpc'
             )
         )
@@ -63,7 +63,10 @@ class Clutch:
 
     def connect(self, agent) -> None:
         try:
-            requests.get(agent.url)
+            resp = requests.get(agent.url)
+            self.log.info(f'{agent.name=}')
+            self.log.info(f'{resp.status_code=}')
+            self.log.info(f'{resp.text=}')
         except Exception as error:
             self.log.info(f'starting {agent.name}')
             import subprocess

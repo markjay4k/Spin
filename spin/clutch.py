@@ -64,9 +64,7 @@ class Clutch:
     def connect(self, agent) -> None:
         try:
             resp = requests.get(agent.url)
-            self.log.info(f'{agent.name=}')
-            self.log.info(f'{resp.status_code=}')
-            self.log.info(f'{resp.text=}')
+            self.log.info(f'API agent: {agent.name}, status code: {resp.status_code}')
         except Exception as error:
             self.log.info(f'starting {agent.name}')
             import subprocess

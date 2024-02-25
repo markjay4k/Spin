@@ -20,6 +20,7 @@ ARG TAGENT_PORT
 ARG TRANSMISSION_PORT
 ARG TRANSMISSION_USER
 ARG TRANSMISSION_PASS
+ARG VPN_IP
 ARG CRON_SCHEDULE
 
 COPY cron_spin_scheduler.sh .
@@ -48,6 +49,7 @@ RUN echo "TRANSMISSION_PORT=$TRANSMISSION_PORT" >> /etc/environment
 RUN echo "TRANSMISSION_USER=$TRANSMISSION_USER" >> /etc/environment
 RUN echo "TRANSMISSION_PASS=$TRANSMISSION_PASS" >> /etc/environment
 RUN echo "CRON_SCHEDULE=$CRON_SCHEDULE" >> /etc/environment
+RUN echo "VPN_IP=$VPN_IP" >> /etc/environment
 RUN echo "WORKDIR=/app" >> /etc/environment
 
 RUN pip3 install -r requirements.txt

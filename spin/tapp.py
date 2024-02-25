@@ -20,7 +20,7 @@ def _decode(key: bytes) -> str:
     return key.decode('utf-8') 
 
 
-def _search_cb(_search_str, _search_col):
+def _search_cb(_search_str, _search_col, site='limetorrent'):
     if _search_str == '':
         return
     column_config={
@@ -41,7 +41,7 @@ def _search_cb(_search_str, _search_col):
         ),
     }
     msg = st.toast(f'searching for {_search_str}...')
-    df = tapi.query(_search_str, site='limetorrent')
+    df = tapi.query(_search_str, site=site)
     with _search_col:
         st.dataframe(
             data=df, 
@@ -93,6 +93,11 @@ def _cover_urls(genre: str) -> Iterator[tuple[Movie.Movie, str]]:
             yield (movie, url)
 
 
+@st.cache_resource
+def _database():
+    return Database(decode=False)
+
+
 log = clogger.log(os.getenv('LOG_LEVEL'))
 log.propagate = False
 cover_key = b'full-size cover url'
@@ -109,7 +114,10 @@ st.set_page_config(
     page_icon=None,
     layout='wide', 
 )
-db = Database(decode=False)
+#db = Database(decode=False)
+db = _database()
+
+
 genres = db.genres
 tabs = st.tabs(('__SEARCH__', *genres))
 genres = ('SEARCH', *genres)
@@ -118,21 +126,29 @@ movie_columns = 6
 
 with tabs['SEARCH']:
     st.title('TORRENT-API SEARCH')
-    col_text= st.columns(1).pop()
-    df_col = st.columns(1).pop()
-    with col_text:
-        torrent_search = st.text_input(
-            label='torrent search', value='',
-            key='torrent_search_input',
-            help='search for a torrent by name using torrent-API',
-            placeholder='enter movie name and press enter to search'
-        )
-    if 'search_previous_input' not in st.session_state:
-        st.session_state.search_previous_input = "" 
+    with st.form('searcher'):
+        col_text, col_select = st.columns([4, 1])
+        with col_select:
+            st.selectbox(
+                'site', options=tapi.goodsites, index=1, key='site_select',
+                help='Select torrent site to search'
+            )
+        with col_text:
+            torrent_search = st.text_input(
+                label='torrent search', value='',
+                key='torrent_search_input',
+                help='search for a torrent by name using torrent-API',
+                placeholder='enter movie name and press enter to search'
+            )
+        #if 'search_previous_input' not in st.session_state:
+        #    st.session_state.search_previous_input = "" 
+        #if torrent_search != st.session_state.search_previous_input:
+            #st.session_state.search_previous_input = torrent_search
 
-    if torrent_search != st.session_state.search_previous_input:
-        _search_cb(torrent_search, df_col)  
-        st.session_state.search_previous_input = torrent_search
+        submit = st.form_submit_button('SEARCH')
+        if submit and torrent_search != '':
+            df_col = st.columns(1).pop()
+            _search_cb(torrent_search, df_col)  
 
 for genre, tab in tabs.items():
     with tab:

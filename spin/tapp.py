@@ -93,11 +93,6 @@ def _cover_urls(genre: str) -> Iterator[tuple[Movie.Movie, str]]:
             yield (movie, url)
 
 
-@st.cache_resource
-def _database():
-    return Database(decode=False)
-
-
 log = clogger.log(os.getenv('LOG_LEVEL'))
 log.propagate = False
 cover_key = b'full-size cover url'
@@ -114,8 +109,7 @@ st.set_page_config(
     page_icon=None,
     layout='wide', 
 )
-#db = Database(decode=False)
-db = _database()
+db = Database(decode=False)
 
 
 genres = db.genres

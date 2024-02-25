@@ -1,33 +1,31 @@
 #!/usr/bin/env python3
 
-from urllib.parse import unquote
-from fastapi import FastAPI
-from tagent import Agent
-import uvicorn
-import __init__
+from transmission_rpc import torrent
+from transmission_rpc import Client
+import clogger
 import os
+import __init__
 
 
-app = FastAPI(docs_url=None)
-agent = Agent()
+class Agent:
+    host = os.getenv('TRANSMISSION_IP')
+    port = os.getenv('TRANSMISSION_PORT')
+    user = os.getenv('TRANSMISSION_USER')
+    passwd = os.getenv('TRANSMISSION_PASS')
 
+    def __init__(self):
+        self.log = clogger.log(os.getenv('LOG_LEVEL'))
+        self.agent = Client(
+            host=self.host,
+            port=self.port,
+            username=self.user,
+            password=self.passwd,
+        )
 
-@app.get("/ping")
-async def ping():
-    return {'ping': 'successful'}
+    @property
+    def torrents(self) -> list[torrent.Torrent]:
+        return self.agent.get_torrents()
 
-
-@app.get("/download/{magnet}")
-async def download_torrent(magnet: str):
-    magnet = unquote(magnet)
-    agent.download(magnet=magnet)
-    return {"magnet": magnet}
-
-
-if __name__ == "__main__":
-    uvicorn.run(
-        app,
-        host=os.getenv('TORRENT_API_HOST'),
-        port=os.getenv('TAGENT_PORT'),
-        log_level=os.getenv('LOG_LEVEL').lower()
-    )
+    def download(self, magnet: str) -> torrent.Torrent:
+        self.log.info(f'{magnet = }')
+        torrent = self.agent.add_torrent(torrent=magnet)

@@ -13,6 +13,39 @@ services:
       - database
     restart: unless-stopped
 
+  tr_rpc:
+    container_name: tr_rpc
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - database
+    ports:
+      - ${RPC_API_PORT}:${RPC_API_PORT}
+    environment:
+      - SPIN_PATH=${SPIN_PATH}
+      - LOG_LEVEL=${LOG_LEVEL}
+      - RPC_API_HOST=${RPC_API_HOST}
+      - RPC_API_PORT=${RPC_API_PORT}
+      - TRANSMISSION_IP=${TRANSMISSION_IP}
+      - TRANSMISSION_PORT=${TRANSMISSION_PORT}
+      - TRANSMISSION_USER=${TRANSMISSION_USER}
+      - TRANSMISSION_PASS=${TRANSMISSION_PASS}
+      - VPN_IP=${VPN_IP}
+    build:
+      context: .
+      dockerfile: ./Dockerfile_rpc
+      args:
+        - SPIN_PATH=${SPIN_PATH}
+        - LOG_LEVEL=${LOG_LEVEL}
+        - RPC_API_HOST=${RPC_API_HOST}
+        - RPC_API_PORT=${RPC_API_PORT}
+        - TRANSMISSION_IP=${TRANSMISSION_IP}
+        - TRANSMISSION_PORT=${TRANSMISSION_PORT}
+        - TRANSMISSION_USER=${TRANSMISSION_USER}
+        - TRANSMISSION_PASS=${TRANSMISSION_PASS}
+        - VPN_IP=${VPN_IP}
+      
   spin:
     container_name: spin
     restart: unless-stopped
@@ -36,7 +69,8 @@ services:
       - TORRENT_API_PORT=${TORRENT_API_PORT}
       - TORRENT_API_PATH=${TORRENT_API_PATH}
       - TRANSMISSION_IP=${TRANSMISSION_IP}
-      - TAGENT_PORT=${TAGENT_PORT}
+      - RPC_API_HOST=${RPC_API_HOST}
+      - RPC_API_PORT=${RPC_API_PORT}
       - TRANSMISSION_PORT=${TRANSMISSION_PORT}
       - TRANSMISSION_USER=${TRANSMISSION_USER}
       - TRANSMISSION_PASS=${TRANSMISSION_PASS}
@@ -59,7 +93,8 @@ services:
         - TORRENT_API_PORT=${TORRENT_API_PORT}
         - TORRENT_API_PATH=${TORRENT_API_PATH}
         - TRANSMISSION_IP=${TRANSMISSION_IP}
-        - TAGENT_PORT=${TAGENT_PORT}
+        - RPC_API_HOST=${RPC_API_HOST}
+        - RPC_API_PORT=${RPC_API_PORT}
         - TRANSMISSION_PORT=${TRANSMISSION_PORT}
         - TRANSMISSION_USER=${TRANSMISSION_USER}
         - TRANSMISSION_PASS=${TRANSMISSION_PASS}

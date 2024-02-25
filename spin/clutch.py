@@ -18,7 +18,6 @@ class Clutch:
     host = os.getenv('TORRENT_API_HOST')
     port = os.getenv('TORRENT_API_PORT')
     path = os.getenv('TORRENT_API_PATH')
-    tagent_port = os.getenv('TAGENT_PORT')
 
     categories = ['name', 'size', 'seeders', 'magnet', 'date']
     goodsites = [
@@ -43,11 +42,6 @@ class Clutch:
                 path=f'{self.path}/main.py',
                 name='torrent-api-py'
             ),
-            api(
-                url=f'http://{self.host}:{self.tagent_port}/ping',
-                path=f'./spin/tr_rpc.py',
-                name='tr_rpc'
-            )
         )
         for agent in agents:
             self.connect(agent)

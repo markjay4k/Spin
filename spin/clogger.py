@@ -150,7 +150,7 @@ def log(
         logger.addHandler(console_handler)
         if err_message is not None:
             logger.warning(
-                f'{err_mesage}. level options: {list(loglevel.keys())}'
+                f'{err_message}. level options: {list(loglevel.keys())}'
             )
         return logger
 

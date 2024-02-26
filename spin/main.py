@@ -27,10 +27,9 @@ async def download_torrent(magnet: str):
 if __name__ == '__main__':
     config = uvicorn.Config(
         app,
-        #host=os.getenv('RPC_API_HOST'),
         host=os.getenv('DATABASE_NETWORK'),
         port=int(os.getenv('RPC_API_PORT')),
-        log_level=os.getenv('LOG_LEVEL').lower()
+        log_level='warning'
     )
     server = uvicorn.Server(config)
     server.run()

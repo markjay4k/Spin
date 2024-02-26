@@ -21,7 +21,7 @@ services:
     networks:
       - database
     ports:
-      - 8008:8009
+      - ${TORRENT_API_PORT}:${TORRENT_API_PORT}
     build:
       context: .
       dockerfile: ./Dockerfile_tap

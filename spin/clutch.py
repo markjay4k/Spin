@@ -38,15 +38,8 @@ class Clutch:
         self.log = clogger.log(os.getenv('LOG_LEVEL'))
         self.jfdb = JFDB() 
         api = namedtuple('api', ['url', 'path', 'name'])
-        agents = (
-            api(
-                url=f'http://{self.torr_host}:{self.torr_port}/api/v1',
-                path=f'{self.path}/main.py',
-                name='torrent-api-py'
-            ),
-        )
-        for agent in agents:
-            self.connect(agent)
+        #for agent in agents:
+        #    self.connect(agent)
 
         self.results = {
             'title': [],

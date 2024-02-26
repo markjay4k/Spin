@@ -2,7 +2,6 @@
 
 from typing import Iterator
 from clutch import Clutch
-from tr_rpc import Agent
 from red import Database
 from dbcheck import JFDB
 from imdb import Movie
@@ -100,7 +99,6 @@ title_key = b'title'
 
 jfdb = JFDB() 
 tapi = Clutch()
-agent = Agent()
 
 st.set_page_config(
     page_title=f'SPIN',

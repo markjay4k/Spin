@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-from collections import namedtuple
 from urllib.parse import quote
 from dbcheck import JFDB
 import pandas as pd
@@ -37,10 +36,6 @@ class Clutch:
         self.api_url = f'http://{self.torr_host}:{self.torr_port}/api/v1'
         self.log = clogger.log(os.getenv('LOG_LEVEL'))
         self.jfdb = JFDB() 
-        api = namedtuple('api', ['url', 'path', 'name'])
-        #for agent in agents:
-        #    self.connect(agent)
-
         self.results = {
             'title': [],
             'name': [], 'size': [],
@@ -49,21 +44,6 @@ class Clutch:
             'magnet': [], 'year': [],
             'codec': [], 'resolution': []
         }
-
-    def connect(self, agent) -> None:
-        try:
-            resp = requests.get(agent.url)
-            self.log.info(f'API agent: {agent.name}, status code: {resp.status_code}')
-        except Exception as error:
-            self.log.info(f'starting {agent.name}')
-            import subprocess
-            cmd = ['python', agent.path]
-            logfile = open('.logs/Spin.log', 'w')
-            self.process = subprocess.Popen(
-                cmd, stdout=logfile, stderr=subprocess.STDOUT
-            )
-        else:
-            self.log.debug(f'connected: {agent.url}')
 
     def sites(self):
         url = f'{self.api_url}/sites'

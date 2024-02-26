@@ -13,6 +13,19 @@ services:
       - database
     restart: unless-stopped
 
+  tap:
+    container_name: tap
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - database
+    ports:
+      - 8008:8009
+    build:
+      context: .
+      dockerfile: ./Dockerfile_tap
+
   tr_rpc:
     container_name: tr_rpc
     restart: unless-stopped

@@ -2,7 +2,7 @@
 
 from typing import Iterator
 from clutch import Clutch
-from tagent import Agent
+from tr_rpc import Agent
 from red import Database
 from dbcheck import JFDB
 from imdb import Movie

@@ -15,8 +15,10 @@ import __init__
 
 class Clutch:
     """API for torrent-API-py"""
-    host = os.getenv('TORRENT_API_HOST')
-    port = os.getenv('TORRENT_API_PORT')
+    rpc_host = os.getenv('RPC_API_HOST')
+    rpc_port = os.getenv('RPC_API_PORT')
+    torr_host = os.getenv('TORRENT_API_HOST')
+    torr_port = os.getenv('TORRENT_API_PORT')
     path = os.getenv('TORRENT_API_PATH')
 
     categories = ['name', 'size', 'seeders', 'magnet', 'date']
@@ -32,13 +34,13 @@ class Clutch:
     ]
 
     def __init__(self) -> None:
-        self.api_url = f'http://{self.host}:{self.port}/api/v1'
+        self.api_url = f'http://{self.torr_host}:{self.torr_port}/api/v1'
         self.log = clogger.log(os.getenv('LOG_LEVEL'))
         self.jfdb = JFDB() 
         api = namedtuple('api', ['url', 'path', 'name'])
         agents = (
             api(
-                url=f'http://{self.host}:{self.port}/api/v1',
+                url=f'http://{self.torr_host}:{self.torr_port}/api/v1',
                 path=f'{self.path}/main.py',
                 name='torrent-api-py'
             ),
@@ -119,7 +121,7 @@ class Clutch:
 
     def _linker(self, magnet):
         magnet = quote(magnet, safe='')
-        url = f'http://{self.host}:{self.tagent_port}/download/{magnet}'
+        url = f'http://{self.rpc_host}:{self.rpc_port}/download/{magnet}'
         return url
 
     def _replace(self, seed):

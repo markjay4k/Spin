@@ -34,7 +34,7 @@ class start_redis:
         for k, v in network_info['Containers'].items():
             address, netsize = v['IPv4Address'].split('/')
             self.log.debug(f'IPv4Address: {address}')
-            break
+            #break
         return address
     
     def envs(self):
@@ -45,8 +45,8 @@ class start_redis:
                     continue
             
                 var, value = line.strip().split('=')
-                if var == 'REDIS_IP_ADDR':
-                    value = self.docker_network(value)
+                #if var == 'REDIS_IP_ADDR':
+                #    value = self.docker_network(value)
 
                 self.log.debug(f'{var}: {value}')
                 os.environ[var] = value

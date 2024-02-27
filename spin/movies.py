@@ -12,9 +12,7 @@ import __init__
 
 
 class Movies:
-    """
-    use cinemagoer top50 search to get top40 movie data by genre
-    """
+    """use cinemagoer top50 search to get top40 movies by genre"""
     def __init__(self):
         self.log = clogger.log(level=os.getenv('LOG_LEVEL'))
         self.imdb_client = Cinemagoer()
@@ -31,7 +29,6 @@ class Movies:
         ids = (m.movieID for m in top_movies)
         if len(top_movies) % 20 == 0:
             workers = 20
-
         try:
             with ThreadPoolExecutor(max_workers=workers) as executor:
                 movies = executor.map(self._get_movie, ids)

@@ -1,8 +1,8 @@
 Torrent-Api-py/*
 spin/__pycache__/*
 __pycache__/*
+venv_spin/*
 venv_rpc/*
 venv/*
 .logs/*
 .env
-_images.py

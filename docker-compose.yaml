@@ -3,7 +3,7 @@ version: '3'
 services:
   redis:
     image: redis:latest
-    container_name: ${DATABASE_NAME}
+    container_name: ${DATABASE_NETWORK}
     command: redis-server --appendonly yes
     volumes:
       - redis_data:/data
@@ -72,46 +72,22 @@ services:
       - SPIN_PATH=${SPIN_PATH}
       - DOWNLOAD_COVER_IMAGE=${DOWNLOAD_COVER_IMAGE}
       - DATABASE_NETWORK=${DATABASE_NETWORK}
-      - DATABASE_NAME=${DATABASE_NAME}
       - REDIS_EXPIRE_SECONDS=${REDIS_EXPIRE_SECONDS}
       - REDIS_IP_ADDR=${REDIS_IP_ADDR}
       - REDIS_PORT=${REDIS_PORT}
       - LOG_LEVEL=${LOG_LEVEL}
-      - JF_MOVIE_DIR=${JF_MOVIE_DIR}
-      - TORRENT_API_HOST=${TORRENT_API_HOST}
-      - TORRENT_API_PORT=${TORRENT_API_PORT}
-      - TORRENT_API_PATH=${TORRENT_API_PATH}
-      - TRANSMISSION_IP=${TRANSMISSION_IP}
-      - RPC_API_HOST=${RPC_API_HOST}
-      - RPC_API_PORT=${RPC_API_PORT}
-      - TRANSMISSION_PORT=${TRANSMISSION_PORT}
-      - TRANSMISSION_USER=${TRANSMISSION_USER}
-      - TRANSMISSION_PASS=${TRANSMISSION_PASS}
-      - VPN_IP=${VPN_IP}
       - CRON_SCHEDULE=${CRON_SCHEDULE}
     build:
       context: .
-      dockerfile: ./Dockerfile
+      dockerfile: ./Dockerfile_spin
       args:
         - SPIN_PATH=${SPIN_PATH}
         - DOWNLOAD_COVER_IMAGE=${DOWNLOAD_COVER_IMAGE}
         - DATABASE_NETWORK=${DATABASE_NETWORK}
-        - DATABASE_NAME=${DATABASE_NAME}
         - REDIS_EXPIRE_SECONDS=${REDIS_EXPIRE_SECONDS}
         - REDIS_IP_ADDR=${REDIS_IP_ADDR}
         - REDIS_PORT=${REDIS_PORT}
         - LOG_LEVEL=${LOG_LEVEL}
-        - JF_MOVIE_DIR=${JF_MOVIE_DIR}
-        - TORRENT_API_HOST=${TORRENT_API_HOST}
-        - TORRENT_API_PORT=${TORRENT_API_PORT}
-        - TORRENT_API_PATH=${TORRENT_API_PATH}
-        - TRANSMISSION_IP=${TRANSMISSION_IP}
-        - RPC_API_HOST=${RPC_API_HOST}
-        - RPC_API_PORT=${RPC_API_PORT}
-        - TRANSMISSION_PORT=${TRANSMISSION_PORT}
-        - TRANSMISSION_USER=${TRANSMISSION_USER}
-        - TRANSMISSION_PASS=${TRANSMISSION_PASS}
-        - VPN_IP=${VPN_IP}
         - CRON_SCHEDULE=${CRON_SCHEDULE}
 
 volumes:

@@ -1,5 +1,6 @@
 FROM python:3.12-slim
 RUN apt-get update
+RUN apt-get install -y ssh curl
 
 WORKDIR /app
 
@@ -19,6 +20,8 @@ COPY $SPIN_PATH/__init__.py .
 COPY $SPIN_PATH/clogger.py .
 COPY $SPIN_PATH/tr_rpc.py .
 COPY $SPIN_PATH/main.py .
+RUN mkdir -p /app/ssh
+COPY ssh/id_rsa /app/ssh/id_rsa 
 
 RUN echo "LOG_LEVEL=$LOG_LEVEL" >> /etc/environment
 RUN echo "RPC_API_HOST=$RPC_API_HOST" >> /etc/environment

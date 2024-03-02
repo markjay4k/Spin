@@ -3,6 +3,7 @@ spin/__pycache__/*
 __pycache__/*
 venv_spin/*
 venv_rpc/*
-venv/*
 .logs/*
+venv/*
+ssh/id_rsa
 .env

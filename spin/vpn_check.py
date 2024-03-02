@@ -9,6 +9,7 @@ import __init__
 
 log = clogger.log(os.getenv('LOG_LEVEL'))
 tr_host = os.getenv('TRANSMISSION_IP')
+vpn_ip = os.getenv('VPN_IP') 
 
 def local(func):
     def inner_function(*args, **kwargs):
@@ -38,8 +39,9 @@ def remote(func):
             log.warning(f'{stderr=}')
             return False
         else:
-            log.info(f'{server_ip=}')
-            vpn_ip = os.getenv('VPN_IP') 
+            log.info(f'VPN CHECK SUCCESSFUL')
+            log.info(f'  SERVER-IP: ***.***.***.{server_ip.split('.').pop()}')
+            log.info(f'     VPN-IP: ***.***.***.{vpn_ip.split('.').pop()}')
             if server_ip != vpn_ip:
                 raise AttributeError('VPN IS DOWN')
             else:

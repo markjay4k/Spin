@@ -14,6 +14,7 @@ ARG TRANSMISSION_PASS
 ARG VPN_IP
 
 COPY requirements_rpc.txt .
+COPY $SPIN_PATH/vpn_check.py .
 COPY $SPIN_PATH/__init__.py .
 COPY $SPIN_PATH/clogger.py .
 COPY $SPIN_PATH/tr_rpc.py .

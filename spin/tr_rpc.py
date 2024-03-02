@@ -2,6 +2,7 @@
 
 from transmission_rpc import torrent
 from transmission_rpc import Client
+import vpn_check
 import clogger
 import os
 import __init__
@@ -26,6 +27,7 @@ class Agent:
     def torrents(self) -> list[torrent.Torrent]:
         return self.agent.get_torrents()
 
+    #@vpn_check.remote
     def download(self, magnet: str) -> torrent.Torrent:
         self.log.info(f'{magnet = }')
         torrent = self.agent.add_torrent(torrent=magnet)

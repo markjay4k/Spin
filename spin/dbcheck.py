@@ -18,7 +18,6 @@ class JFDB:
     def __init__(self):
         self.log = clogger.log(os.getenv('LOG_LEVEL'))
         self.jfdb = os.getenv('JF_MOVIE_DIR')
-        self.jf_movie_titles = self._jf_movies()
         self.agent = Client(
             host=self.host,
             port=self.port,
@@ -53,13 +52,13 @@ class JFDB:
         for torr in torrents:
             info = PTN.parse(torr.name)
             if 'title' in info.keys():
-                torrs.append(info['title'])
+                torrs.append(info['title'].lower())
         return torrs 
 
     def isin_jellyfin(self, movie: Movie.Movie) -> bool:
         movie_title = movie[b'title'].lower()
         movie_title = movie_title.decode('utf-8')
-        if movie_title in self.jf_movie_titles:
+        if movie_title in self.movies:
             self.log.debug(f' movie is in JFDB: {movie_title}')
             return True 
         else:

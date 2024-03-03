@@ -23,7 +23,7 @@ class start_redis:
                     return True
         except FileNotFoundError as error:
             self.log.warning(f'{error}')
-            os.environ['WORKDIR'] = '.'
+            os.environ['WORKDIR'] = './src'
             return False
 
     def docker_network(self, name):
@@ -45,9 +45,6 @@ class start_redis:
                     continue
             
                 var, value = line.strip().split('=')
-                #if var == 'REDIS_IP_ADDR':
-                #    value = self.docker_network(value)
-
                 self.log.debug(f'{var}: {value}')
                 os.environ[var] = value
                 envs[var] = value

@@ -17,6 +17,7 @@ class JFDB:
 
     def __init__(self):
         self.log = clogger.log(os.getenv('LOG_LEVEL'))
+        self.sshkey_path = os.getenv('TRANSMISSION_SSHKEY_FILEPATH')
         self.jfdb = os.getenv('JF_MOVIE_DIR')
         self.agent = Client(
             host=self.host,
@@ -33,6 +34,11 @@ class JFDB:
         return all_movies
 
     def _jf_movies(self) -> list[str]:
+        command = [
+            'ssh', '-o', 'StrictHostKeyChecking=accept-new',
+            f'mark@{self.host}', '-i', self.sshkey_path,
+            'ls', self.jfdb
+        ]
         command = ['ssh', 'mork', 'ls', self.jfdb]
         movies = subprocess.run(command, capture_output=True)
         movies = movies.stdout.decode('utf-8').strip().split('\n')

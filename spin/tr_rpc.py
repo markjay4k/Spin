@@ -5,7 +5,7 @@ from transmission_rpc import Client
 import vpn_check
 import clogger
 import os
-import __init__
+#import __init__
 
 
 class Agent:

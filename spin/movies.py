@@ -8,7 +8,7 @@ from imdb import IMDbError
 from red import Database
 import clogger
 import os
-import __init__
+#import __init__
 
 
 class Movies:

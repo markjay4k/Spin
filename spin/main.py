@@ -5,7 +5,7 @@ from fastapi import FastAPI
 from tr_rpc import Agent
 import uvicorn
 import os
-import __init__
+#import __init__
 
 
 app = FastAPI(docs_url=None)

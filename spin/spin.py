@@ -2,10 +2,10 @@
 
 from movies import Movies
 import argparse
+import clogger
 import time
 import os
-import __init__
-import clogger
+#import __init__
 
 
 def sync(args):

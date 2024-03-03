@@ -1,9 +1,10 @@
 Torrent-Api-py/*
 spin/__pycache__/*
 __pycache__/*
+ssh/id_rsa
 venv_spin/*
 venv_rpc/*
-.logs/*
 venv/*
-ssh/id_rsa
+.logs/*
 .env
+Dockerfile

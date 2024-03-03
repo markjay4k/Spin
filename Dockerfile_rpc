@@ -12,16 +12,19 @@ ARG TRANSMISSION_IP
 ARG TRANSMISSION_PORT
 ARG TRANSMISSION_USER
 ARG TRANSMISSION_PASS
+ARG TRANSMISSION_SSHKEY_FILEPATH
 ARG VPN_IP
 
 COPY requirements_rpc.txt .
 COPY $SPIN_PATH/vpn_check.py .
-COPY $SPIN_PATH/__init__.py .
+#COPY $SPIN_PATH/__init__.py .
 COPY $SPIN_PATH/clogger.py .
 COPY $SPIN_PATH/tr_rpc.py .
 COPY $SPIN_PATH/main.py .
+
 RUN mkdir -p /app/ssh
-COPY ssh/id_rsa /app/ssh/id_rsa 
+COPY ${TRANSMISSION_SSHKEY_FILEPATH} /app/ssh/id_rsa 
+RUN chmod 0700 /app/ssh/id_rsa
 
 RUN echo "LOG_LEVEL=$LOG_LEVEL" >> /etc/environment
 RUN echo "RPC_API_HOST=$RPC_API_HOST" >> /etc/environment

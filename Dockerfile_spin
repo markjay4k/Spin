@@ -14,7 +14,7 @@ ARG CRON_SCHEDULE
 
 COPY cron_spin_scheduler.sh .
 COPY requirements_spin.txt .
-#COPY $SPIN_PATH/__init__.py .
+COPY $SPIN_PATH/__init__.py .
 COPY $SPIN_PATH/clogger.py .
 COPY $SPIN_PATH/movies.py .
 COPY $SPIN_PATH/spin.py .

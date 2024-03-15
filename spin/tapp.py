@@ -73,7 +73,12 @@ def display_images_in_grid(genre: str, columns: int) -> None:
                 _year = 'UNKNOWN'
 
             _title = _decode(movie[title_key])
-            _plot = _decode(movie[b'plot']) 
+            try:
+                _plot = _decode(movie[b'plot']) 
+            except KeyError as error:
+                log.warning(f'{error}')
+                _plot = '?' 
+
             st.caption(
                 body=f'{emoji} {_title}',
                 help=f"__{_title} ({_year})__\n\r{_plot}"

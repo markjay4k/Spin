@@ -137,10 +137,6 @@ with tabs['SEARCH']:
                 help='search for a torrent by name using torrent-API',
                 placeholder='enter movie name and press enter to search'
             )
-        #if 'search_previous_input' not in st.session_state:
-        #    st.session_state.search_previous_input = "" 
-        #if torrent_search != st.session_state.search_previous_input:
-            #st.session_state.search_previous_input = torrent_search
 
         submit = st.form_submit_button('SEARCH')
         if submit and torrent_search != '':
